@@ -1,0 +1,548 @@
+{
+  "log": {
+    "level": "warn",
+    "output": "box.log",
+    "timestamp": true
+  },
+  "dns": {
+    "servers": [
+      {
+        "tag": "dns-remote",
+        "address": "udp://1.1.1.1",
+        "address_resolver": "dns-direct"
+      },
+      {
+        "tag": "dns-trick-direct",
+        "address": "https://sky.rethinkdns.com/",
+        "detour": "direct-fragment"
+      },
+      {
+        "tag": "dns-direct",
+        "address": "1.1.1.1",
+        "address_resolver": "dns-local",
+        "detour": "direct"
+      },
+      {
+        "tag": "dns-local",
+        "address": "local",
+        "detour": "direct"
+      },
+      {
+        "tag": "dns-block",
+        "address": "rcode://success"
+      }
+    ],
+    "rules": [
+      {
+        "domain": [
+          "cloud.kinononva.top",
+          "eagle.hafezdivan.online.",
+          "allsms.rozfa.com",
+          "zula.ir",
+          "v20.milad1379.xyz",
+          "series-a2.samanehha.co",
+          "series-a2-mec.varzesh360.co",
+          "viphamester.wolfmoon.ir"
+        ],
+        "server": "dns-direct"
+      },
+      {
+        "domain_suffix": ".ir",
+        "geosite": "ir",
+        "server": "dns-direct"
+      },
+      {
+        "domain": "cp.cloudflare.com",
+        "server": "dns-remote",
+        "rewrite_ttl": 3000
+      }
+    ],
+    "final": "dns-remote",
+    "static_ips": {
+      "sky.rethinkdns.com": [
+        "188.114.96.3",
+        "188.114.97.3",
+        "2a06:98c1:3121::3",
+        "2a06:98c1:3120::3"
+      ]
+    },
+    "independent_cache": true
+  },
+  "inbounds": [
+    {
+      "type": "tun",
+      "tag": "tun-in",
+      "mtu": 9000,
+      "inet4_address": "172.19.0.1/28",
+      "inet6_address": "fdfe:dcba:9876::1/126",
+      "auto_route": true,
+      "strict_route": true,
+      "endpoint_independent_nat": true,
+      "stack": "mixed",
+      "sniff": true,
+      "sniff_override_destination": true
+    },
+    {
+      "type": "mixed",
+      "tag": "mixed-in",
+      "listen": "127.0.0.1",
+      "listen_port": 2334,
+      "sniff": true,
+      "sniff_override_destination": true
+    },
+    {
+      "type": "direct",
+      "tag": "dns-in",
+      "listen": "127.0.0.1",
+      "listen_port": 6450,
+      "override_address": "1.1.1.1",
+      "override_port": 53
+    }
+  ],
+  "outbounds": [
+    {
+      "type": "selector",
+      "tag": "select",
+      "outbounds": [
+        "auto",
+        "@Hiddify_nexttt تلگرام ☢️ § 0",
+        "@Hiddify_nexttt تلگرام ☢️ § 1",
+        "@Hiddify_nexttt تلگرام ☢️ § 2",
+        "@Hiddify_nexttt تلگرام ☢️ § 3",
+        "@Hiddify_nexttt تلگرام ☢️ § 4",
+        "@Hiddify_nexttt تلگرام ☢️ § 5",
+        "@Hiddify_nexttt تلگرام ☢️ § 6",
+        "@Hiddify_nexttt تلگرام ☢️ § 7",
+        "@Hiddify_nexttt تلگرام ☢️ § 8",
+        "@Hiddify_nexttt تلگرام ☢️ § 9",
+        "@Hiddify_nexttt تلگرام ☢️ § 10",
+        "@Hiddify_nexttt تلگرام ☢️ § 11",
+        "@Hiddify_nexttt تلگرام ☢️ § 12",
+        "@Hiddify_nexttt تلگرام ☢️ § 13",
+        "@Hiddify_nexttt تلگرام ☢️ § 14",
+        "@Hiddify_nexttt تلگرام ☢️ § 15",
+        "@Hiddify_nexttt تلگرام ☢️ § 16"
+      ],
+      "default": "auto"
+    },
+    {
+      "type": "urltest",
+      "tag": "auto",
+      "outbounds": [
+        "@Hiddify_nexttt تلگرام ☢️ § 0",
+        "@Hiddify_nexttt تلگرام ☢️ § 1",
+        "@Hiddify_nexttt تلگرام ☢️ § 2",
+        "@Hiddify_nexttt تلگرام ☢️ § 3",
+        "@Hiddify_nexttt تلگرام ☢️ § 4",
+        "@Hiddify_nexttt تلگرام ☢️ § 5",
+        "@Hiddify_nexttt تلگرام ☢️ § 6",
+        "@Hiddify_nexttt تلگرام ☢️ § 7",
+        "@Hiddify_nexttt تلگرام ☢️ § 8",
+        "@Hiddify_nexttt تلگرام ☢️ § 9",
+        "@Hiddify_nexttt تلگرام ☢️ § 10",
+        "@Hiddify_nexttt تلگرام ☢️ § 11",
+        "@Hiddify_nexttt تلگرام ☢️ § 12",
+        "@Hiddify_nexttt تلگرام ☢️ § 13",
+        "@Hiddify_nexttt تلگرام ☢️ § 14",
+        "@Hiddify_nexttt تلگرام ☢️ § 15",
+        "@Hiddify_nexttt تلگرام ☢️ § 16"
+      ],
+      "url": "http://cp.cloudflare.com/",
+      "interval": "10m0s",
+      "idle_timeout": "1h40m0s"
+    },
+    {
+      "type": "shadowsocks",
+      "tag": "@Hiddify_nexttt تلگرام ☢️ § 0",
+      "server": "45.158.171.141",
+      "server_port": 8080,
+      "method": "chacha20-ietf-poly1305",
+      "password": "a8bt9fY0QsLS6eLnXUe0Ym"
+    },
+    {
+      "type": "shadowsocks",
+      "tag": "@Hiddify_nexttt تلگرام ☢️ § 1",
+"server": "series-a2.samanehha.co",
+      "server_port": 443,
+      "method": "chacha20-ietf-poly1305",
+      "password": "mps3FwmDjLrWaOVg"
+    },
+    {
+      "type": "shadowsocks",
+      "tag": "@Hiddify_nexttt تلگرام ☢️ § 2",
+      "server": "series-a2-mec.varzesh360.co",
+      "server_port": 443,
+      "method": "chacha20-ietf-poly1305",
+      "password": "u17T3BvpYaaiuW2c"
+    },
+    {
+      "type": "vmess",
+      "tag": "@Hiddify_nexttt تلگرام ☢️ § 3",
+      "server": "172.67.170.13",
+      "server_port": 443,
+      "uuid": "76221bfb-e92f-4e80-81c5-6fe48f50ac0b",
+      "security": "auto",
+      "authenticated_length": true,
+      "tls": {
+        "enabled": true,
+        "server_name": "glweidf.sbs",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/linkws",
+        "headers": {
+          "Host": "glweidf.sbs"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "@Hiddify_nexttt تلگرام ☢️ § 4",
+      "server": "172.67.164.164",
+      "server_port": 443,
+      "uuid": "a1655f51-1e20-4a92-8a11-b7ca30a7a353",
+      "security": "auto",
+      "authenticated_length": true,
+      "tls": {
+        "enabled": true,
+        "server_name": "afrhms07.xfixedfloat.cfd",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/linkws",
+        "headers": {
+          "Host": "afrhms07.xfixedfloat.cfd"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "@Hiddify_nexttt تلگرام ☢️ § 5",
+      "server": "31.172.67.242",
+      "server_port": 43118,
+      "password": "ypDt8RkT7J",
+      "tls": {
+        "enabled": true,
+        "server_name": "tpmwh.phooeyunfold.com",
+        "alpn": [
+          "h2",
+          "http/1.1"
+        ],
+        "utls": {
+          "enabled": true,
+          "fingerprint": "random"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "@Hiddify_nexttt تلگرام ☢️ § 6",
+      "server": "viphamester.wolfmoon.ir",
+      "server_port": 443,
+      "uuid": "5da27733-3527-479e-bb81-4c5a9c75d83f",
+      "tls": {
+        "enabled": true,
+        "server_name": "viphamester.wolfmoon.ir",
+        "alpn": [
+          "h2",
+          "http/1.1"
+        ],
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "grpc",
+        "service_name": "okala.com",
+        "idle_timeout": "15s",
+        "ping_timeout": "15s"
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "@Hiddify_nexttt تلگرام ☢️ § 7",
+      "server": "cloud.kinononva.top",
+      "server_port": 2096,
+      "uuid": "2a3263e2-891c-4446-b474-a8c63acb6e25",
+      "tls": {
+        "enabled": true,
+        "server_name": "u1.3mehdidom.net",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "u1.3mehdidom.net"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "@Hiddify_nexttt تلگرام ☢️ § 8",
+      "server": "eagle.hafezdivan.online.",
+      "server_port": 443,
+      "uuid": "c416be20-32b3-467f-83c2-735e04d639f7",
+      "tls": {
+        "enabled": true,
+        "disable_sni": true,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "randomized"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/TELEGRAM-MARAMBASHI/",
+        "max_early_data": 2048,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+},
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "@Hiddify_nexttt تلگرام ☢️ § 9",
+      "server": "allsms.rozfa.com",
+      "server_port": 443,
+      "uuid": "6a89dc04-7781-46fe-b35c-e14a6b6e60b8",
+      "tls": {
+        "enabled": true,
+        "server_name": "test-teSt-tEsT-teSt.pagES.DEv",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "randomized"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/Telegram-@V2ray_Alpha/",
+        "headers": {
+          "Host": "TESt-TEsT-TEST-TEsT.pAGes.dEV"
+        },
+        "max_early_data": 2048,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "@Hiddify_nexttt تلگرام ☢️ § 10",
+      "server": "zula.ir",
+      "server_port": 8080,
+      "uuid": "ab524e8e-2d41-481b-b5ba-3b58a8e7cd08",
+      "transport": {
+        "type": "ws",
+        "path": "/Telegram:@UnlimitedDev-Telegram:@UnlimitedDev",
+        "headers": {
+          "Host": "unlimiteddev-vpn.unlimiteddev.Community."
+        },
+        "max_early_data": 8080,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "@Hiddify_nexttt تلگرام ☢️ § 11",
+      "server": "2.189.59.2",
+      "server_port": 443,
+      "uuid": "2d037023-06eb-4949-9708-0f2473ea7c6c",
+      "tls": {
+        "enabled": true,
+        "server_name": "mci.unlimiteddev-vpn.Com.",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "grpc",
+        "service_name": "Channel:@UnlimitedDev",
+        "idle_timeout": "15s",
+        "ping_timeout": "15s"
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "@Hiddify_nexttt تلگرام ☢️ § 12",
+      "server": "104.16.216.241",
+      "server_port": 443,
+      "uuid": "10716279-b1ee-41d8-b63e-87782088305b",
+      "tls": {
+        "enabled": true,
+        "server_name": "heY.bACHeBiapAiN.Ir",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "randomized"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/iXNpb8TL5D4uHOQC?ed",
+        "headers": {
+          "Host": "hey.bacheBiapAIN.iR"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "@Hiddify_nexttt تلگرام ☢️ § 13",
+      "server": "104.31.16.125",
+      "server_port": 443,
+      "uuid": "376b9861-2fc6-4647-959c-18185cd9c95a",
+      "tls": {
+        "enabled": true,
+        "server_name": "lmn1715683972331.lmn15534.info",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/srvacc1",
+        "headers": {
+          "Host": "lmn1715683972331.lmn15534.info"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "@Hiddify_nexttt تلگرام ☢️ § 14",
+      "server": "185.146.173.146",
+      "server_port": 80,
+      "uuid": "1ba939cd-b055-43bb-a35d-e011cb7c3ac8",
+      "transport": {
+        "type": "ws",
+        "path": "/Join--HAJIMAMADVPN?ed",
+        "headers": {
+          "Host": "HaJiMaMaDVpN.GoLdEn-PiNg.Ir."
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "@Hiddify_nexttt تلگرام ☢️ § 15",
+      "server": "185.146.173.39",
+      "server_port": 8080,
+      "uuid": "Parsashonam-97",
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "digikala.com.arvancloud.ir.farsroid.com.soft98.ir.par30dl.com.flstudio.com.xn--0-ko6ab82c106mda34ulw7efa.blog.shabazian.ir."
+},
+        "max_early_data": 2560,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "@Hiddify_nexttt تلگرام ☢️ § 16",
+      "server": "v20.milad1379.xyz",
+      "server_port": 9090,
+      "uuid": "871c3258-5767-43b0-fb93-f39fecfac863",
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "dns",
+      "tag": "dns-out"
+    },
+    {
+      "type": "direct",
+      "tag": "direct"
+    },
+    {
+      "type": "direct",
+      "tag": "direct-fragment",
+      "tls_fragment": {
+        "enabled": true,
+        "size": "1-500",
+        "sleep": "0-500"
+      }
+    },
+    {
+      "type": "direct",
+      "tag": "bypass"
+    },
+    {
+      "type": "block",
+      "tag": "block"
+    }
+  ],
+  "route": {
+    "geoip": {
+      "path": "geo-assets/sagernet-sing-geoip-geoip.db"
+    },
+    "geosite": {
+      "path": "geo-assets/sagernet-sing-geosite-geosite.db"
+    },
+    "rules": [
+      {
+        "inbound": "dns-in",
+        "outbound": "dns-out"
+      },
+      {
+        "port": 53,
+        "outbound": "dns-out"
+      },
+      {
+        "clash_mode": "Direct",
+        "outbound": "direct"
+      },
+      {
+        "clash_mode": "Global",
+        "outbound": "select"
+      },
+      {
+        "domain_suffix": ".ir",
+        "geosite": "ir",
+        "geoip": "ir",
+        "outbound": "bypass"
+      }
+    ],
+    "final": "select",
+    "auto_detect_interface": true,
+    "override_android_vpn": true
+  },
+  "experimental": {
+    "cache_file": {
+      "enabled": true,
+      "path": "clash.db"
+    },
+    "clash_api": {
+      "external_controller": "127.0.0.1:6756",
+      "secret": "O8Zbvum7ABIi54jU"
+    }
+  }
+}
