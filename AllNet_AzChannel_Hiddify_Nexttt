@@ -1,0 +1,695 @@
+{
+  "log": {
+    "level": "warn",
+    "output": "box.log",
+    "timestamp": true
+  },
+  "dns": {
+    "servers": [
+      {
+        "tag": "dns-remote",
+        "address": "udp://1.1.1.1",
+        "address_resolver": "dns-direct"
+      },
+      {
+        "tag": "dns-trick-direct",
+        "address": "https://sky.rethinkdns.com/",
+        "detour": "direct-fragment"
+      },
+      {
+        "tag": "dns-direct",
+        "address": "1.1.1.1",
+        "address_resolver": "dns-local",
+        "detour": "direct"
+      },
+      {
+        "tag": "dns-local",
+        "address": "local",
+        "detour": "direct"
+      },
+      {
+        "tag": "dns-block",
+        "address": "rcode://success"
+      }
+    ],
+    "rules": [
+      {
+        "domain": [
+          "r9.tomk.fun",
+          "r10.tomk.fun",
+          "ip2.tomk.fun",
+          "r4.tomk.fun",
+          "r5.tomk.fun",
+          "r3.tomk.fun",
+          "r6.tomk.fun",
+          "r7.tomk.fun",
+          "r8.tomk.fun",
+          "ip1.tomk.fun",
+          "r1.tomk.fun",
+          "r2.tomk.fun"
+        ],
+        "server": "dns-direct"
+      },
+      {
+        "domain_suffix": ".ir",
+        "geosite": "ir",
+        "server": "dns-direct"
+      },
+      {
+        "domain": "cp.cloudflare.com",
+        "server": "dns-remote",
+        "rewrite_ttl": 3000
+      }
+    ],
+    "final": "dns-remote",
+    "static_ips": {
+      "sky.rethinkdns.com": [
+        "188.114.97.3",
+        "188.114.96.3",
+        "2a06:98c1:3121::3",
+        "2a06:98c1:3120::3",
+        "104.17.147.22",
+        "104.17.148.22",
+        "188.114.96.3",
+        "188.114.97.3",
+        "2a06:98c1:3120::3",
+        "2a06:98c1:3121::3"
+      ]
+    },
+    "independent_cache": true
+  },
+  "inbounds": [
+    {
+      "type": "tun",
+      "tag": "tun-in",
+      "mtu": 9000,
+      "inet4_address": "172.19.0.1/28",
+      "inet6_address": "fdfe:dcba:9876::1/126",
+      "auto_route": true,
+      "strict_route": true,
+      "endpoint_independent_nat": true,
+      "stack": "mixed",
+      "sniff": true,
+      "sniff_override_destination": true
+    },
+    {
+      "type": "mixed",
+      "tag": "mixed-in",
+      "listen": "127.0.0.1",
+      "listen_port": 2334,
+      "sniff": true,
+      "sniff_override_destination": true
+    },
+    {
+      "type": "direct",
+      "tag": "dns-in",
+      "listen": "127.0.0.1",
+      "listen_port": 6450,
+      "override_address": "1.1.1.1",
+      "override_port": 53
+    }
+  ],
+  "outbounds": [
+    {
+      "type": "selector",
+      "tag": "select",
+      "outbounds": [
+        "auto",
+        "@Hiddify_Nexttt همه اپراتور ها  § 0",
+        "@Hiddify_Nexttt همه اپراتور ها  § 1",
+        "@Hiddify_Nexttt همه اپراتور ها  § 2",
+        "@Hiddify_Nexttt همه اپراتور ها  § 3",
+        "@Hiddify_Nexttt همه اپراتور ها  § 4",
+        "@Hiddify_Nexttt همه اپراتور ها  § 5",
+        "@Hiddify_Nexttt همه اپراتور ها  § 6",
+        "@Hiddify_Nexttt همه اپراتور ها  § 7",
+        "@Hiddify_Nexttt همه اپراتور ها  § 8",
+        "@Hiddify_Nexttt همه اپراتور ها  § 9",
+        "@Hiddify_Nexttt همه اپراتور ها  § 10",
+        "@Hiddify_Nexttt همه اپراتور ها  § 11",
+        "@Hiddify_Nexttt همه اپراتور ها  § 12",
+        "@Hiddify_Nexttt همه اپراتور ها  § 13",
+        "@Hiddify_Nexttt همه اپراتور ها  § 14",
+        "@Hiddify_Nexttt همه اپراتور ها  § 15",
+        "@Hiddify_Nexttt همه اپراتور ها  § 16",
+        "@Hiddify_Nexttt همه اپراتور ها  § 17",
+        "@Hiddify_Nexttt همه اپراتور ها  § 18",
+        "@Hiddify_Nexttt همه اپراتور ها  § 19",
+        "@Hiddify_Nexttt همه اپراتور ها  § 20"
+      ],
+      "default": "auto"
+    },
+    {
+      "type": "urltest",
+      "tag": "auto",
+      "outbounds": [
+        "@Hiddify_Nexttt همه اپراتور ها  § 0",
+        "@Hiddify_Nexttt همه اپراتور ها  § 1",
+        "@Hiddify_Nexttt همه اپراتور ها  § 2",
+        "@Hiddify_Nexttt همه اپراتور ها  § 3",
+        "@Hiddify_Nexttt همه اپراتور ها  § 4",
+        "@Hiddify_Nexttt همه اپراتور ها  § 5",
+        "@Hiddify_Nexttt همه اپراتور ها  § 6",
+        "@Hiddify_Nexttt همه اپراتور ها  § 7",
+"@Hiddify_Nexttt همه اپراتور ها  § 8",
+        "@Hiddify_Nexttt همه اپراتور ها  § 9",
+        "@Hiddify_Nexttt همه اپراتور ها  § 10",
+        "@Hiddify_Nexttt همه اپراتور ها  § 11",
+        "@Hiddify_Nexttt همه اپراتور ها  § 12",
+        "@Hiddify_Nexttt همه اپراتور ها  § 13",
+        "@Hiddify_Nexttt همه اپراتور ها  § 14",
+        "@Hiddify_Nexttt همه اپراتور ها  § 15",
+        "@Hiddify_Nexttt همه اپراتور ها  § 16",
+        "@Hiddify_Nexttt همه اپراتور ها  § 17",
+        "@Hiddify_Nexttt همه اپراتور ها  § 18",
+        "@Hiddify_Nexttt همه اپراتور ها  § 19",
+        "@Hiddify_Nexttt همه اپراتور ها  § 20"
+      ],
+      "url": "http://cp.cloudflare.com/",
+      "interval": "10m0s",
+      "idle_timeout": "1h40m0s"
+    },
+    {
+      "type": "vless",
+      "tag": "@Hiddify_Nexttt همه اپراتور ها  § 0",
+      "server": "ip1.tomk.fun",
+      "server_port": 2096,
+      "uuid": "1149be91-5a4f-47de-995f-66f8d7d64498",
+      "tls": {
+        "enabled": true,
+        "server_name": "GeR1.SimAnSaNat.iR.",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "headers": {
+          "Host": "GeR1.SimAnSaNat.iR."
+        }
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "@Hiddify_Nexttt همه اپراتور ها  § 1",
+      "server": "ip1.tomk.fun",
+      "server_port": 2096,
+      "uuid": "1149be91-5a4f-47de-995f-66f8d7d64498",
+      "tls": {
+        "enabled": true,
+        "server_name": "GeR2.SimAnSaNat.iR.",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "headers": {
+          "Host": "GeR2.SimAnSaNat.iR."
+        }
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "@Hiddify_Nexttt همه اپراتور ها  § 2",
+      "server": "ip1.tomk.fun",
+      "server_port": 2096,
+      "uuid": "1149be91-5a4f-47de-995f-66f8d7d64498",
+      "tls": {
+        "enabled": true,
+        "server_name": "GeR3.SimAnSaNat.iR.",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "headers": {
+          "Host": "GeR3.SimAnSaNat.iR."
+        }
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "@Hiddify_Nexttt همه اپراتور ها  § 3",
+      "server": "ip1.tomk.fun",
+      "server_port": 2096,
+      "uuid": "1149be91-5a4f-47de-995f-66f8d7d64498",
+      "tls": {
+        "enabled": true,
+        "server_name": "GeR4.SimAnSaNat.iR.",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "headers": {
+          "Host": "GeR4.SimAnSaNat.iR."
+        }
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "@Hiddify_Nexttt همه اپراتور ها  § 4",
+      "server": "ip1.tomk.fun",
+      "server_port": 2096,
+      "uuid": "1149be91-5a4f-47de-995f-66f8d7d64498",
+      "tls": {
+        "enabled": true,
+        "server_name": "GeR5.SimAnSaNat.iR.",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "headers": {
+          "Host": "GeR5.SimAnSaNat.iR."
+        }
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "@Hiddify_Nexttt همه اپراتور ها  § 5",
+      "server": "ip2.tomk.fun",
+      "server_port": 2096,
+      "uuid": "1149be91-5a4f-47de-995f-66f8d7d64498",
+      "tls": {
+        "enabled": true,
+        "server_name": "GeR6.SimAnSaNat.iR.",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "headers": {
+          "Host": "GeR6.SimAnSaNat.iR."
+        }
+      },
+      "packet_encoding": ""
+},
+    {
+      "type": "vless",
+      "tag": "@Hiddify_Nexttt همه اپراتور ها  § 6",
+      "server": "ip2.tomk.fun",
+      "server_port": 2096,
+      "uuid": "1149be91-5a4f-47de-995f-66f8d7d64498",
+      "tls": {
+        "enabled": true,
+        "server_name": "GeR7.SimAnSaNat.iR.",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "headers": {
+          "Host": "GeR7.SimAnSaNat.iR."
+        }
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "@Hiddify_Nexttt همه اپراتور ها  § 7",
+      "server": "ip2.tomk.fun",
+      "server_port": 2096,
+      "uuid": "1149be91-5a4f-47de-995f-66f8d7d64498",
+      "tls": {
+        "enabled": true,
+        "server_name": "GeR8.SimAnSaNat.iR.",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "headers": {
+          "Host": "GeR8.SimAnSaNat.iR."
+        }
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "@Hiddify_Nexttt همه اپراتور ها  § 8",
+      "server": "ip2.tomk.fun",
+      "server_port": 2096,
+      "uuid": "1149be91-5a4f-47de-995f-66f8d7d64498",
+      "tls": {
+        "enabled": true,
+        "server_name": "GeR9.SimAnSaNat.iR.",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "headers": {
+          "Host": "GeR9.SimAnSaNat.iR."
+        }
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "@Hiddify_Nexttt همه اپراتور ها  § 9",
+      "server": "ip2.tomk.fun",
+      "server_port": 2096,
+      "uuid": "1149be91-5a4f-47de-995f-66f8d7d64498",
+      "tls": {
+        "enabled": true,
+        "server_name": "GeR10.SimAnSaNat.iR.",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "headers": {
+          "Host": "GeR10.SimAnSaNat.iR."
+        }
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "@Hiddify_Nexttt همه اپراتور ها  § 10",
+      "server": "ip2.tomk.fun",
+      "server_port": 2096,
+      "uuid": "1149be91-5a4f-47de-995f-66f8d7d64498",
+      "tls": {
+        "enabled": true,
+        "server_name": "PaRiS.SimAnSaNat.iR.",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "headers": {
+          "Host": "PaRiS.SimAnSaNat.iR."
+        }
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "@Hiddify_Nexttt همه اپراتور ها  § 11",
+      "server": "r1.tomk.fun",
+      "server_port": 1234,
+      "uuid": "1149be91-5a4f-47de-995f-66f8d7d64498",
+      "tls": {
+        "enabled": true,
+        "server_name": "www.icloud.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "L2b7MW4F9bT8ALwebQtCbXGTaH5sl9o97BxmynrlxHo",
+          "short_id": "8f90c18dc7b2652b"
+        }
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "@Hiddify_Nexttt همه اپراتور ها  § 12",
+      "server": "r2.tomk.fun",
+      "server_port": 1234,
+      "uuid": "1149be91-5a4f-47de-995f-66f8d7d64498",
+      "tls": {
+        "enabled": true,
+        "server_name": "icloud.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "L2b7MW4F9bT8ALwebQtCbXGTaH5sl9o97BxmynrlxHo",
+          "short_id": "8f90c18dc7b2652b"
+        }
+      },
+      "packet_encoding": ""
+    },
+{
+      "type": "vless",
+      "tag": "@Hiddify_Nexttt همه اپراتور ها  § 13",
+      "server": "r3.tomk.fun",
+      "server_port": 1234,
+      "uuid": "1149be91-5a4f-47de-995f-66f8d7d64498",
+      "tls": {
+        "enabled": true,
+        "server_name": "icloud.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "L2b7MW4F9bT8ALwebQtCbXGTaH5sl9o97BxmynrlxHo",
+          "short_id": "8f90c18dc7b2652b"
+        }
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "@Hiddify_Nexttt همه اپراتور ها  § 14",
+      "server": "r4.tomk.fun",
+      "server_port": 1234,
+      "uuid": "1149be91-5a4f-47de-995f-66f8d7d64498",
+      "tls": {
+        "enabled": true,
+        "server_name": "icloud.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "L2b7MW4F9bT8ALwebQtCbXGTaH5sl9o97BxmynrlxHo",
+          "short_id": "8f90c18dc7b2652b"
+        }
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "@Hiddify_Nexttt همه اپراتور ها  § 15",
+      "server": "r5.tomk.fun",
+      "server_port": 1234,
+      "uuid": "1149be91-5a4f-47de-995f-66f8d7d64498",
+      "tls": {
+        "enabled": true,
+        "server_name": "icloud.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "L2b7MW4F9bT8ALwebQtCbXGTaH5sl9o97BxmynrlxHo",
+          "short_id": "8f90c18dc7b2652b"
+        }
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "@Hiddify_Nexttt همه اپراتور ها  § 16",
+      "server": "r6.tomk.fun",
+      "server_port": 1234,
+      "uuid": "1149be91-5a4f-47de-995f-66f8d7d64498",
+      "tls": {
+        "enabled": true,
+        "server_name": "www.icloud.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "L2b7MW4F9bT8ALwebQtCbXGTaH5sl9o97BxmynrlxHo",
+          "short_id": "8f90c18dc7b2652b"
+        }
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "@Hiddify_Nexttt همه اپراتور ها  § 17",
+      "server": "r7.tomk.fun",
+      "server_port": 1234,
+      "uuid": "1149be91-5a4f-47de-995f-66f8d7d64498",
+      "tls": {
+        "enabled": true,
+        "server_name": "icloud.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "L2b7MW4F9bT8ALwebQtCbXGTaH5sl9o97BxmynrlxHo",
+          "short_id": "8f90c18dc7b2652b"
+        }
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "@Hiddify_Nexttt همه اپراتور ها  § 18",
+      "server": "r8.tomk.fun",
+      "server_port": 1234,
+      "uuid": "1149be91-5a4f-47de-995f-66f8d7d64498",
+      "tls": {
+        "enabled": true,
+        "server_name": "icloud.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "L2b7MW4F9bT8ALwebQtCbXGTaH5sl9o97BxmynrlxHo",
+          "short_id": "8f90c18dc7b2652b"
+        }
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "@Hiddify_Nexttt همه اپراتور ها  § 19",
+      "server": "r9.tomk.fun",
+      "server_port": 1234,
+      "uuid": "1149be91-5a4f-47de-995f-66f8d7d64498",
+      "tls": {
+        "enabled": true,
+        "server_name": "www.icloud.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        },
+        "reality": {
+          "enabled": true,
+"public_key": "L2b7MW4F9bT8ALwebQtCbXGTaH5sl9o97BxmynrlxHo",
+          "short_id": "8f90c18dc7b2652b"
+        }
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "@Hiddify_Nexttt همه اپراتور ها  § 20",
+      "server": "r10.tomk.fun",
+      "server_port": 1234,
+      "uuid": "1149be91-5a4f-47de-995f-66f8d7d64498",
+      "tls": {
+        "enabled": true,
+        "server_name": "icloud.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "L2b7MW4F9bT8ALwebQtCbXGTaH5sl9o97BxmynrlxHo",
+          "short_id": "8f90c18dc7b2652b"
+        }
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "dns",
+      "tag": "dns-out"
+    },
+    {
+      "type": "direct",
+      "tag": "direct"
+    },
+    {
+      "type": "direct",
+      "tag": "direct-fragment",
+      "tls_fragment": {
+        "enabled": true,
+        "size": "1-500",
+        "sleep": "0-500"
+      }
+    },
+    {
+      "type": "direct",
+      "tag": "bypass"
+    },
+    {
+      "type": "block",
+      "tag": "block"
+    }
+  ],
+  "route": {
+    "geoip": {
+      "path": "geo-assets/sagernet-sing-geoip-geoip.db"
+    },
+    "geosite": {
+      "path": "geo-assets/sagernet-sing-geosite-geosite.db"
+    },
+    "rules": [
+      {
+        "inbound": "dns-in",
+        "outbound": "dns-out"
+      },
+      {
+        "port": 53,
+        "outbound": "dns-out"
+      },
+      {
+        "clash_mode": "Direct",
+        "outbound": "direct"
+      },
+      {
+        "clash_mode": "Global",
+        "outbound": "select"
+      },
+      {
+        "domain_suffix": ".ir",
+        "geosite": "ir",
+        "geoip": "ir",
+        "outbound": "bypass"
+      }
+    ],
+    "final": "select",
+    "auto_detect_interface": true,
+    "override_android_vpn": true
+  },
+  "experimental": {
+    "cache_file": {
+      "enabled": true,
+      "path": "clash.db"
+    },
+    "clash_api": {
+      "external_controller": "127.0.0.1:6756",
+      "secret": "hE8m87O3aasGvh5y"
+    }
+  }
+}
