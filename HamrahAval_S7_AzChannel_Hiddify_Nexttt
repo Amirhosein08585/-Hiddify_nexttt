@@ -94,9 +94,7 @@
       "tag": "select",
       "outbounds": [
         "auto",
-        "@meli_proxyy1 § 0",
-        "@meli_proxyy2 § 1",
-        "@meli_proxyy3 § 2"
+        "@Hiddify_Nexttt همراه اول § 0"
       ],
       "default": "auto"
     },
@@ -104,17 +102,15 @@
       "type": "urltest",
       "tag": "auto",
       "outbounds": [
-        "@meli_proxyy1 § 0",
-        "@meli_proxyy2 § 1",
-        "@meli_proxyy3 § 2"
-      ],
+        "@Hiddify_Nexttt همراه اول § 0"
+             ],
       "url": "https://www.gstatic.com/generate_204",
       "interval": "10m0s",
       "idle_timeout": "1h40m0s"
     },
     {
       "type": "vless",
-      "tag": "@meli_proxyy1 § 0",
+      "tag": "@Hiddify_Nexttt همراه اول § 0",
       "server": "185.146.173.68",
       "server_port": 2095,
       "uuid": "---DIGIV2RAY--",
@@ -129,41 +125,7 @@
       },
       "packet_encoding": ""
     },
-    {
-      "type": "vless",
-      "tag": "@meli_proxyy2 § 1",
-      "server": "www.Speedtest.Net",
-      "server_port": 2095,
-      "uuid": "---DIGIV2RAY--",
-      "transport": {
-        "type": "ws",
-        "path": "/DigiconnecT",
-        "headers": {
-          "Host": "www.speedtest.net.ftp.debian.org.xn--ihqvla424c49bba047b50okggl0rcfo5o3aus3a.website."
-        },
-        "max_early_data": 1024,
-        "early_data_header_name": "Sec-WebSocket-Protocol"
-      },
-      "packet_encoding": ""
-    },
-    {
-      "type": "vless",
-      "tag": "@meli_proxyy3 § 2",
-      "server": "zula.ir",
-      "server_port": 2095,
-      "uuid": "---DIGIV2RAY--",
-      "transport": {
-        "type": "ws",
-        "path": "/DigiconnecT",
-        "headers": {
-          "Host": "QUENTIN--_--DiG.radiotehran.org."
-        },
-        "max_early_data": 1024,
-        "early_data_header_name": "Sec-WebSocket-Protocol"
-      },
-      "packet_encoding": ""
-},
-    {
+       {
       "type": "dns",
       "tag": "dns-out"
     },
