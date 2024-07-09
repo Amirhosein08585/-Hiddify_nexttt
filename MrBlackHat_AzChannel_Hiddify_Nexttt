@@ -1,0 +1,775 @@
+{
+  "log": {
+    "level": "warn",
+    "output": "box.log",
+    "timestamp": true
+  },
+  "dns": {
+    "servers": [
+      {
+        "tag": "dns-remote",
+        "address": "udp://1.1.1.1",
+        "address_resolver": "dns-direct"
+      },
+      {
+        "tag": "dns-trick-direct",
+        "address": "https://sky.rethinkdns.com/",
+        "detour": "direct-fragment"
+      },
+      {
+        "tag": "dns-direct",
+        "address": "1.1.1.1",
+        "address_resolver": "dns-local",
+        "detour": "direct"
+      },
+      {
+        "tag": "dns-local",
+        "address": "local",
+        "detour": "direct"
+      },
+      {
+        "tag": "dns-block",
+        "address": "rcode://success"
+      }
+    ],
+    "rules": [
+      {
+        "domain": [
+          "www.parsvds.ir",
+          "www.speedtest.net",
+          "series-a2-mec.varzesh360.co",
+          "series-a1.samanehha.co",
+          "www.speedtest.net",
+          "zula.ir",
+          "irancell.xn--g28h.dns-dynamic.net.cdn.cloudflare.net",
+          "speed.cloudflare.com",
+          "iranserver.com"
+        ],
+        "server": "dns-direct"
+      },
+      {
+        "domain": "cp.cloudflare.com",
+        "server": "dns-remote",
+        "rewrite_ttl": 3000
+      }
+    ],
+    "final": "dns-remote",
+    "static_ips": {
+      "sky.rethinkdns.com": [
+        "188.114.96.3",
+        "188.114.97.3",
+        "2a06:98c1:3120::3",
+        "2a06:98c1:3121::3",
+        "104.17.148.22",
+        "104.17.147.22"
+      ]
+    },
+    "independent_cache": true
+  },
+  "inbounds": [
+    {
+      "type": "tun",
+      "tag": "tun-in",
+      "mtu": 9000,
+      "inet4_address": "172.19.0.1/28",
+      "auto_route": true,
+      "strict_route": true,
+      "endpoint_independent_nat": true,
+      "stack": "mixed",
+      "sniff": true,
+      "sniff_override_destination": true
+    },
+    {
+      "type": "mixed",
+      "tag": "mixed-in",
+      "listen": "127.0.0.1",
+      "listen_port": 2334,
+      "sniff": true,
+      "sniff_override_destination": true
+    },
+    {
+      "type": "direct",
+      "tag": "dns-in",
+      "listen": "127.0.0.1",
+      "listen_port": 6450
+    }
+  ],
+  "outbounds": [
+    {
+      "type": "selector",
+      "tag": "select",
+      "outbounds": [
+        "auto",
+        "@Hiddify_Nexttt MrBlackHat ☠️ § 0",
+        "@Hiddify_Nexttt MrBlackHat ☠️ § 1",
+        "@Hiddify_Nexttt MrBlackHat ☠️ § 2",
+        "@Hiddify_Nexttt MrBlackHat ☠️ § 3",
+        "@Hiddify_Nexttt MrBlackHat ☠️ § 4",
+        "@Hiddify_Nexttt MrBlackHat ☠️ § 5",
+        "@Hiddify_Nexttt MrBlackHat ☠️ § 6",
+        "@Hiddify_Nexttt MrBlackHat ☠️ § 7",
+        "@Hiddify_Nexttt MrBlackHat ☠️ § 8",
+        "@Hiddify_Nexttt MrBlackHat ☠️ § 9",
+        "@Hiddify_Nexttt MrBlackHat ☠️ § 10",
+        "@Hiddify_Nexttt MrBlackHat ☠️ § 11",
+        "@Hiddify_Nexttt MrBlackHat ☠️ § 12",
+        "@Hiddify_Nexttt MrBlackHat ☠️ § 13",
+        "@Hiddify_Nexttt MrBlackHat ☠️ § 14",
+        "@Hiddify_Nexttt MrBlackHat ☠️ § 15",
+        "@Hiddify_Nexttt MrBlackHat ☠️ § 16",
+        "@Hiddify_Nexttt MrBlackHat ☠️ § 17",
+        "@Hiddify_Nexttt MrBlackHat ☠️ § 18",
+        "@Hiddify_Nexttt MrBlackHat ☠️ § 19",
+        "@Hiddify_Nexttt MrBlackHat ☠️ § 20",
+        "@Hiddify_Nexttt MrBlackHat ☠️ § 21",
+        "@Hiddify_Nexttt MrBlackHat ☠️ § 22",
+        "@Hiddify_Nexttt MrBlackHat ☠️ § 23",
+        "@Hiddify_Nexttt MrBlackHat ☠️ § 24",
+        "@Hiddify_Nexttt MrBlackHat ☠️ § 25",
+        "@Hiddify_Nexttt MrBlackHat ☠️ § 26",
+        "@Hiddify_Nexttt MrBlackHat ☠️ § 27",
+        "@Hiddify_Nexttt MrBlackHat ☠️ § 28",
+        "@Hiddify_Nexttt MrBlackHat ☠️ § 29",
+        "@Hiddify_Nexttt MrBlackHat ☠️ § 30"
+      ],
+      "default": "auto"
+    },
+    {
+      "type": "urltest",
+      "tag": "auto",
+      "outbounds": [
+        "@Hiddify_Nexttt MrBlackHat ☠️ § 0",
+        "@Hiddify_Nexttt MrBlackHat ☠️ § 1",
+        "@Hiddify_Nexttt MrBlackHat ☠️ § 2",
+        "@Hiddify_Nexttt MrBlackHat ☠️ § 3",
+        "@Hiddify_Nexttt MrBlackHat ☠️ § 4",
+        "@Hiddify_Nexttt MrBlackHat ☠️ § 5",
+        "@Hiddify_Nexttt MrBlackHat ☠️ § 6",
+        "@Hiddify_Nexttt MrBlackHat ☠️ § 7",
+        "@Hiddify_Nexttt MrBlackHat ☠️ § 8",
+        "@Hiddify_Nexttt MrBlackHat ☠️ § 9",
+        "@Hiddify_Nexttt MrBlackHat ☠️ § 10",
+        "@Hiddify_Nexttt MrBlackHat ☠️ § 11",
+        "@Hiddify_Nexttt MrBlackHat ☠️ § 12",
+        "@Hiddify_Nexttt MrBlackHat ☠️ § 13",
+        "@Hiddify_Nexttt MrBlackHat ☠️ § 14",
+        "@Hiddify_Nexttt MrBlackHat ☠️ § 15",
+        "@Hiddify_Nexttt MrBlackHat ☠️ § 16",
+        "@Hiddify_Nexttt MrBlackHat ☠️ § 17",
+        "@Hiddify_Nexttt MrBlackHat ☠️ § 18",
+        "@Hiddify_Nexttt MrBlackHat ☠️ § 19",
+        "@Hiddify_Nexttt MrBlackHat ☠️ § 20",
+        "@Hiddify_Nexttt MrBlackHat ☠️ § 21",
+        "@Hiddify_Nexttt MrBlackHat ☠️ § 22",
+        "@Hiddify_Nexttt MrBlackHat ☠️ § 23",
+        "@Hiddify_Nexttt MrBlackHat ☠️ § 24",
+        "@Hiddify_Nexttt MrBlackHat ☠️ § 25",
+        "@Hiddify_Nexttt MrBlackHat ☠️ § 26",
+        "@Hiddify_Nexttt MrBlackHat ☠️ § 27",
+        "@Hiddify_Nexttt MrBlackHat ☠️ § 28",
+        "@Hiddify_Nexttt MrBlackHat ☠️ § 29",
+        "@Hiddify_Nexttt MrBlackHat ☠️ § 30"
+      ],
+      "url": "https://www.gstatic.com/generate_204",
+      "interval": "10m0s",
+      "idle_timeout": "1h40m0s"
+    },
+    {
+      "type": "vless",
+      "tag": "@Hiddify_Nexttt MrBlackHat ☠️ § 0",
+      "server": "www.parsvds.ir",
+      "server_port": 8080,
+      "uuid": "625cbf50-ea54-481e-85d4-c02656eb5d69",
+      "transport": {
+        "type": "ws",
+        "path": "/SHHPROXY",
+        "headers": {
+          "Host": "SHHproxy-shhPROXY-SHHproxy.joinTELEGRAM.net."
+        },
+        "max_early_data": 8080,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "@Hiddify_Nexttt MrBlackHat ☠️ § 1",
+      "server": "www.speedtest.net",
+      "server_port": 8080,
+      "uuid": "edf22b0c-b871-4ffc-9f8c-88a3e4f66338",
+      "transport": {
+        "type": "ws",
+        "path": "/SHHPROXY",
+        "headers": {
+          "Host": "SHHproxy--shhPROXY--SHHproxy.joinTELEGRAM.net."
+        },
+        "max_early_data": 8080,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "@Hiddify_Nexttt MrBlackHat ☠️ § 2",
+      "server": "www.parsvds.ir",
+      "server_port": 8080,
+      "uuid": "@Hiddify_Nexttt MrBlackHat ☠️",
+      "transport": {
+        "type": "ws",
+        "path": "/@Hiddify_Nexttt MrBlackHat ☠️",
+        "headers": {
+          "Host": "@Hiddify_Nexttt MrBlackHat ☠️-@Hiddify_Nexttt MrBlackHat ☠️-@Hiddify_Nexttt MrBlackHat ☠️.CUSTOMIZEspeedtest.net."
+        },
+        "max_early_data": 8080,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "@Hiddify_Nexttt MrBlackHat ☠️ § 3",
+      "server": "185.146.173.58",
+      "server_port": 8080,
+      "uuid": "625cbf50-ea54-481e-85d4-c02656eb5d69",
+      "transport": {
+        "type": "ws",
+        "path": "/SHHPROXY",
+        "headers": {
+          "Host": "SHHproxy-shhPROXY-SHHproxy.joinTELEGRAM.net."
+        },
+        "max_early_data": 8080,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "@Hiddify_Nexttt MrBlackHat ☠️ § 4",
+      "server": "188.114.98.224",
+      "server_port": 8080,
+      "uuid": "edf22b0c-b871-4ffc-9f8c-88a3e4f66338",
+      "transport": {
+        "type": "ws",
+        "path": "/SHHPROXY",
+        "headers": {
+          "Host": "SHHproxy--shhPROXY--SHHproxy.joinTELEGRAM.net."
+        },
+        "max_early_data": 8080,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "@Hiddify_Nexttt MrBlackHat ☠️ § 5",
+      "server": "185.146.173.58",
+      "server_port": 2095,
+      "uuid": "telegram-id-ArV2ray",
+      "transport": {
+        "type": "ws",
+        "path": "/telegram-ArV2ry,telegram-ArV2ry,telegram-ArV2ry,telegram-ArV2ry,telegram-ArV2ry,telegram-ArV2ry,telegram-ArV2ry,telegram-ArV2ry,telegram-ArV2ry,telegram-ArV2ry,telegram-ArV2ry",
+        "headers": {
+          "Host": "www.zula.ir.w.speedtest.net.mehpow.ir"
+        },
+        "max_early_data": 2048,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "@Hiddify_Nexttt MrBlackHat ☠️ § 6",
+      "server": "185.146.173.68",
+      "server_port": 2095,
+      "uuid": "----DIGIV2RAY---",
+      "transport": {
+        "type": "ws",
+        "path": "/DigiconnecT",
+        "headers": {
+          "Host": "QUENTIN--_--DiG.radiotehran.org."
+        },
+        "max_early_data": 1024,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "@Hiddify_Nexttt MrBlackHat ☠️ § 7",
+      "server": "www.Speedtest.Net",
+      "server_port": 2095,
+      "uuid": "----DIGIV2RAY---",
+      "transport": {
+        "type": "ws",
+        "path": "/DigiconnecT",
+        "headers": {
+          "Host": "www.speedtest.net.ftp.debian.org.xn--ihqvla424c49bba047b50okggl0rcfo5o3aus3a.website."
+        },
+        "max_early_data": 1024,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "@Hiddify_Nexttt MrBlackHat ☠️ § 8",
+      "server": "zula.ir",
+      "server_port": 2095,
+      "uuid": "----DIGIV2RAY---",
+      "transport": {
+        "type": "ws",
+        "path": "/DigiconnecT",
+        "headers": {
+          "Host": "QUENTIN--_--DiG.radiotehran.org."
+        },
+        "max_early_data": 1024,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "@Hiddify_Nexttt MrBlackHat ☠️ § 9",
+      "server": "185.146.173.68",
+      "server_port": 2095,
+      "uuid": "----DIGIV2RAY---",
+      "transport": {
+        "type": "ws",
+        "path": "/DigiconnecT",
+        "headers": {
+          "Host": "QUENTIN--_--DiG.radiotehran.org."
+        },
+        "max_early_data": 1024,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "@Hiddify_Nexttt MrBlackHat ☠️ § 10",
+      "server": "www.Speedtest.Net",
+      "server_port": 2095,
+      "uuid": "----DIGIV2RAY---",
+      "transport": {
+        "type": "ws",
+        "path": "/DigiconnecT",
+        "headers": {
+          "Host": "www.speedtest.net.ftp.debian.org.xn--ihqvla424c49bba047b50okggl0rcfo5o3aus3a.website."
+        },
+        "max_early_data": 1024,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "@Hiddify_Nexttt MrBlackHat ☠️ § 11",
+      "server": "zula.ir",
+      "server_port": 2095,
+      "uuid": "----DIGIV2RAY---",
+      "transport": {
+        "type": "ws",
+        "path": "/DigiconnecT",
+        "headers": {
+          "Host": "QUENTIN--_--DiG.radiotehran.org."
+        },
+        "max_early_data": 1024,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "@Hiddify_Nexttt MrBlackHat ☠️ § 12",
+      "server": "94.182.223.111",
+      "server_port": 57408,
+      "uuid": "dcc3148c-b082-4453-a785-1bb7d366d87b",
+      "packet_encoding": ""
+    },
+    {
+      "type": "shadowsocks",
+      "tag": "@Hiddify_Nexttt MrBlackHat ☠️ § 13",
+      "server": "series-a2-mec.varzesh360.co",
+      "server_port": 443,
+      "method": "chacha20-ietf-poly1305",
+      "password": "u17T3BvpYaaiuW2c"
+    },
+    {
+      "type": "shadowsocks",
+      "tag": "@Hiddify_Nexttt MrBlackHat ☠️ § 14",
+      "server": "irancell.xn--g28h.dns-dynamic.net.cdn.cloudflare.net",
+      "server_port": 443,
+      "method": "chacha20-ietf-poly1305",
+      "password": "u17T3BvpYaaiuW2c"
+    },
+    {
+      "type": "vless",
+      "tag": "@Hiddify_Nexttt MrBlackHat ☠️ § 15",
+      "server": "51.75.30.8",
+      "server_port": 80,
+      "uuid": "1949f066-bcb0-49be-88e9-74abd940f80e",
+      "transport": {
+        "type": "ws",
+        "path": "/http",
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "shadowsocks",
+      "tag": "@Hiddify_Nexttt MrBlackHat ☠️ § 16",
+      "server": "45.158.171.131",
+      "server_port": 8080,
+      "method": "chacha20-ietf-poly1305",
+      "password": "a8bt9fY0QsLS6eLnXUe0Ym"
+    },
+    {
+      "type": "vless",
+      "tag": "@Hiddify_Nexttt MrBlackHat ☠️ § 17",
+      "tls_fragment": {
+        "enabled": true,
+        "size": "5-17",
+        "sleep": "1"
+      },
+      "server": "104.24.196.20",
+      "server_port": 2053,
+      "uuid": "89b3cbba-e6ac-485a-9481-976a0415eab9",
+      "tls": {
+        "enabled": true,
+        "server_name": "936a99B4.Vde5-MlX81LANeo.pAgES.dEv",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "randomized"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/TELEGRAM-PROXY_MTM/",
+        "headers": {
+          "Host": "936a99B4.vDE5-MLx81LANeO.pAgeS.DEV"
+        },
+        "max_early_data": 2048,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "@Hiddify_Nexttt MrBlackHat ☠️ § 18",
+      "server": "speed.cloudflare.com",
+      "server_port": 80,
+      "uuid": "5d4fb4ee-cc86-4bdf-9777-ff6e759a8700",
+      "transport": {
+        "type": "ws",
+        "path": "/48608/Down",
+        "headers": {
+          "Host": "slatdrres45rewrubikaeitasalam.dr-salam.com"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "@Hiddify_Nexttt MrBlackHat ☠️ § 19",
+      "server": "www.speedtest.net",
+      "server_port": 80,
+      "uuid": "Telegram-ipV2Ray-xyu",
+      "transport": {
+        "type": "ws",
+        "path": "/Telegram-ipV2Ray",
+        "headers": {
+          "Host": "c.1.www.speedtest.net.zula.ir.zemestanil.ir"
+        },
+        "max_early_data": 2048,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "shadowsocks",
+      "tag": "@Hiddify_Nexttt MrBlackHat ☠️ § 20",
+      "server": "series-a1.samanehha.co",
+      "server_port": 443,
+      "method": "chacha20-ietf-poly1305",
+      "password": "W74XFALLLuw6m5IA"
+    },
+    {
+      "type": "vless",
+      "tag": "@Hiddify_Nexttt MrBlackHat ☠️ § 21",
+      "tls_fragment": {
+        "enabled": true,
+        "size": "5-17",
+        "sleep": "1"
+      },
+      "server": "188.114.96.3",
+      "server_port": 443,
+      "uuid": "89b3cbba-e6ac-485a-9481-976a0415eab9",
+      "tls": {
+        "enabled": true,
+        "server_name": "viEEzer-pANeL.paGES.DEv",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "randomized"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/HRj71tnRkPZV60Ea/d3d3LmlyYW5ob3N0LmNvbQ==",
+        "headers": {
+          "Host": "vIeEZEr-PaNeL.PAGes.dev"
+        },
+        "max_early_data": 2560,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "@Hiddify_Nexttt MrBlackHat ☠️ § 22",
+      "server": "speed.cloudflare.com",
+      "server_port": 80,
+      "uuid": "f1ffb60d-07b6-4381-8ecf-c368f7c2762d",
+      "transport": {
+        "type": "ws",
+        "path": "/DSDaswd22!11*fdfm55247.COM.",
+        "headers": {
+          "Host": "mardi6.scorpion1.info"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "@Hiddify_Nexttt MrBlackHat ☠️ § 23",
+      "tls_fragment": {
+        "enabled": true,
+        "size": "5-17",
+        "sleep": "1"
+      },
+      "server": "199.232.194.133",
+      "server_port": 443,
+      "uuid": "142e062f-475e-4484-8bd6-8386b246f366",
+      "tls": {
+        "enabled": true,
+        "server_name": "www.speedrun.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "vpngaming.ir"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "@Hiddify_Nexttt MrBlackHat ☠️ § 24",
+      "tls_fragment": {
+        "enabled": true,
+        "size": "5-17",
+        "sleep": "1"
+      },
+      "server": "172.66.44.55",
+      "server_port": 443,
+      "uuid": "104380d8-f859-421a-bd11-29b2c9fbfa99",
+      "tls": {
+        "enabled": true,
+        "server_name": "famil-5c8.pages.dev",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "randomized"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "famil-5c8.pages.dev"
+        },
+        "max_early_data": 2048,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "@Hiddify_Nexttt MrBlackHat ☠️ § 25",
+      "server": "185.146.173.20",
+      "server_port": 2082,
+      "uuid": "24347e96-912c-4f53-9c67-9cc895fc6fdf",
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "h5.xn--gmq282ekfhyys3gs.com."
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "shadowsocks",
+      "tag": "@Hiddify_Nexttt MrBlackHat ☠️ § 26",
+      "server": "series-a2-mec.varzesh360.co",
+      "server_port": 443,
+      "method": "chacha20-ietf-poly1305",
+      "password": "u17T3BvpYaaiuW2c"
+    },
+    {
+      "type": "vless",
+      "tag": "@Hiddify_Nexttt MrBlackHat ☠️ § 27",
+      "server": "www.parsvds.ir",
+      "server_port": 8080,
+      "uuid": "@Hiddify_Nexttt MrBlackHat ☠️",
+      "transport": {
+        "type": "ws",
+        "path": "/@Hiddify_Nexttt MrBlackHat ☠️",
+        "headers": {
+          "Host": "@Hiddify_Nexttt MrBlackHat ☠️-@Hiddify_Nexttt MrBlackHat ☠️-@Hiddify_Nexttt MrBlackHat ☠️.CUSTOMIZEspeedtest.net."
+        },
+        "max_early_data": 8080,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "@Hiddify_Nexttt MrBlackHat ☠️ § 28",
+      "server": "iranserver.com",
+      "server_port": 8080,
+      "uuid": "4d9c972d-b628-49ab-b277-0049c7f4df60",
+      "transport": {
+        "type": "ws",
+        "path": "/@ELiV2ray-@ELiV2ray-ELi.elmahstyle.ir",
+        "headers": {
+          "Host": "ELi.V2ray.motorcycles"
+        },
+        "max_early_data": 80,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "@Hiddify_Nexttt MrBlackHat ☠️ § 29",
+      "server": "185.146.173.143",
+      "server_port": 8080,
+      "uuid": "84a09036-9673-4be4-b428-48e7c75d6a7c",
+      "transport": {
+        "type": "ws",
+        "path": "/@ELiV2--@ELiV2--@ELiV2--@ELiV2",
+        "headers": {
+          "Host": "f1.elena-cloudflare.com"
+        },
+        "max_early_data": 80,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "@Hiddify_Nexttt MrBlackHat ☠️ § 30",
+      "server": "iranserver.com",
+      "server_port": 8080,
+      "uuid": "ae52d7a4-57bd-48f1-9343-f4557444071e",
+      "transport": {
+        "type": "ws",
+        "path": "/Telegram:@UnlimitedDev-Telegram:@UnlimitedDev",
+        "headers": {
+          "Host": "unlimiteddev-vpn.unlimiteddev.Community."
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "dns",
+      "tag": "dns-out"
+    },
+    {
+      "type": "direct",
+      "tag": "direct"
+    },
+    {
+      "type": "direct",
+      "tag": "direct-fragment",
+      "tls_fragment": {
+        "enabled": true,
+        "size": "5-17",
+        "sleep": "1"
+      }
+    },
+    {
+      "type": "direct",
+      "tag": "bypass"
+    },
+    {
+      "type": "block",
+      "tag": "block"
+    }
+  ],
+  "route": {
+    "rules": [
+      {
+        "rule_set": [
+          "geoip-ir",
+          "geosite-ir"
+        ],
+        "outbound": "direct"
+      },
+      {
+        "inbound": "dns-in",
+        "outbound": "dns-out"
+      },
+      {
+        "port": 53,
+        "outbound": "dns-out"
+      },
+      {
+        "clash_mode": "Direct",
+        "outbound": "direct"
+      },
+      {
+        "clash_mode": "Global",
+        "outbound": "select"
+      }
+    ],
+    "rule_set": [
+      {
+        "type": "remote",
+        "tag": "geoip-ir",
+        "format": "binary",
+        "url": "https://raw.githubusercontent.com/Chocolate4U/Iran-sing-box-rules/rule-set/geoip-ir.srs",
+        "update_interval": "120h0m0s"
+      },
+      {
+        "type": "remote",
+        "tag": "geosite-ir",
+        "format": "binary",
+        "url": "https://raw.githubusercontent.com/Chocolate4U/Iran-sing-box-rules/rule-set/geosite-ir.srs",
+        "update_interval": "120h0m0s"
+      }
+    ],
+    "final": "select",
+    "auto_detect_interface": true,
+    "override_android_vpn": true
+  },
+  "experimental": {
+    "cache_file": {
+      "enabled": true,
+      "path": "clash.db"
+    },
+    "clash_api": {
+      "external_controller": "127.0.0.1:6756",
+      "secret": "V3yinmwYnLNapKmZ"
+    }
+  }
+}
