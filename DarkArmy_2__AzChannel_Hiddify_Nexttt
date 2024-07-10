@@ -1,0 +1,607 @@
+{
+  "log": {
+    "level": "warn",
+    "output": "box.log",
+    "timestamp": true
+  },
+  "dns": {
+    "servers": [
+      {
+        "tag": "dns-remote",
+        "address": "udp://1.1.1.1",
+        "address_resolver": "dns-direct"
+      },
+      {
+        "tag": "dns-trick-direct",
+        "address": "https://sky.rethinkdns.com/",
+        "detour": "direct-fragment"
+      },
+      {
+        "tag": "dns-direct",
+        "address": "1.1.1.1",
+        "address_resolver": "dns-local",
+        "detour": "direct"
+      },
+      {
+        "tag": "dns-local",
+        "address": "local",
+        "detour": "direct"
+      },
+      {
+        "tag": "dns-block",
+        "address": "rcode://success"
+      }
+    ],
+    "rules": [
+      {
+        "domain": [
+          "zula.ir",
+          "ch1.melobigg.site",
+          "www.parsvds.ir",
+          "www.speedtest.net",
+          "www.speedtest.net"
+        ],
+        "server": "dns-direct"
+      },
+      {
+        "domain": "cp.cloudflare.com",
+        "server": "dns-remote",
+        "rewrite_ttl": 3000
+      }
+    ],
+    "final": "dns-remote",
+    "static_ips": {
+      "sky.rethinkdns.com": [
+        "188.114.96.3",
+        "188.114.97.3",
+        "2a06:98c1:3121::1",
+        "2a06:98c1:3120::1",
+        "104.17.148.22",
+        "104.17.147.22",
+        "188.114.97.3",
+        "188.114.96.3",
+        "2a06:98c1:3120::3",
+        "2a06:98c1:3121::3"
+      ]
+    },
+    "independent_cache": true
+  },
+  "inbounds": [
+    {
+      "type": "tun",
+      "tag": "tun-in",
+      "mtu": 9000,
+      "inet4_address": "172.19.0.1/28",
+      "auto_route": true,
+      "strict_route": true,
+      "endpoint_independent_nat": true,
+      "stack": "mixed",
+      "sniff": true,
+      "sniff_override_destination": true
+    },
+    {
+      "type": "mixed",
+      "tag": "mixed-in",
+      "listen": "127.0.0.1",
+      "listen_port": 2334,
+      "sniff": true,
+      "sniff_override_destination": true
+    },
+    {
+      "type": "direct",
+      "tag": "dns-in",
+      "listen": "127.0.0.1",
+      "listen_port": 6450
+    }
+  ],
+  "outbounds": [
+    {
+      "type": "selector",
+      "tag": "select",
+      "outbounds": [
+        "auto",
+        "@Hiddify_Nexttt DarkArmy 1 🎃 § 0",
+        "@Hiddify_Nexttt DarkArmy 2 🎃 § 1",
+        "@Hiddify_Nexttt DarkArmy 3 🎃 § 2",
+        "@Hiddify_Nexttt DarkArmy 4 🎃 § 3",
+        "@Hiddify_Nexttt DarkArmy 5 🎃 § 4",
+        "@Hiddify_Nexttt DarkArmy 6 🎃 § 5",
+        "@Hiddify_Nexttt DarkArmy 7 🎃 § 6",
+        "@Hiddify_Nexttt DarkArmy 8 🎃 § 7",
+        "@Hiddify_Nexttt DarkArmy 9 🎃 § 8",
+        "@Hiddify_Nexttt DarkArmy 10 🎃 § 9",
+        "@Hiddify_Nexttt DarkArmy 11 🎃 § 10",
+        "@Hiddify_Nexttt DarkArmy 12 🎃 § 11",
+        "@Hiddify_Nexttt DarkArmy 13 🎃 § 12",
+        "@Hiddify_Nexttt DarkArmy 14 🎃 § 13",
+        "@Hiddify_Nexttt DarkArmy 15 🎃 § 14",
+        "@Hiddify_Nexttt DarkArmy 16 🎃 § 15",
+        "@Hiddify_Nexttt DarkArmy 17 🎃 § 16",
+        "@Hiddify_Nexttt DarkArmy 18 🎃§ 17",
+        "@Hiddify_Nexttt DarkArmy 19 🎃§ 18",
+        "@Hiddify_Nexttt DarkArmy 20 🎃§ 19",
+        "@Hiddify_Nexttt DarkArmy 21 🎃§ 20",
+        "@Hiddify_Nexttt DarkArmy 22 🎃§ 21"
+      ],
+      "default": "auto"
+    },
+    {
+      "type": "urltest",
+      "tag": "auto",
+      "outbounds": [
+        "@Hiddify_Nexttt DarkArmy 1 🎃 § 0",
+        "@Hiddify_Nexttt DarkArmy 2 🎃 § 1",
+        "@Hiddify_Nexttt DarkArmy 3 🎃 § 2",
+        "@Hiddify_Nexttt DarkArmy 4 🎃 § 3",
+        "@Hiddify_Nexttt DarkArmy 5 🎃 § 4",
+        "@Hiddify_Nexttt DarkArmy 6 🎃 § 5",
+        "@Hiddify_Nexttt DarkArmy 7 🎃 § 6",
+        "@Hiddify_Nexttt DarkArmy 8 🎃 § 7",
+        "@Hiddify_Nexttt DarkArmy 9 🎃 § 8",
+        "@Hiddify_Nexttt DarkArmy 10 🎃 § 9",
+        "@Hiddify_Nexttt DarkArmy 11 🎃 § 10",
+        "@Hiddify_Nexttt DarkArmy 12 🎃 § 11",
+        "@Hiddify_Nexttt DarkArmy 13 🎃 § 12",
+        "@Hiddify_Nexttt DarkArmy 14 🎃 § 13",
+        "@Hiddify_Nexttt DarkArmy 15 🎃 § 14",
+        "@Hiddify_Nexttt DarkArmy 16 🎃 § 15",
+        "@Hiddify_Nexttt DarkArmy 17 🎃 § 16",
+        "@Hiddify_Nexttt DarkArmy 18 🎃§ 17",
+        "@Hiddify_Nexttt DarkArmy 19 🎃§ 18",
+        "@Hiddify_Nexttt DarkArmy 20 🎃§ 19",
+        "@Hiddify_Nexttt DarkArmy 21 🎃§ 20",
+        "@Hiddify_Nexttt DarkArmy 22 🎃§ 21"
+
+      ],
+      "url": "http://connectivitycheck.gstatic.com/generate_204",
+      "interval": "10m0s",
+      "idle_timeout": "1h40m0s"
+    },
+    {
+      "type": "vless",
+      "tag": "@Hiddify_Nexttt DarkArmy 1 🎃 § 0",
+      "server": "www.speedtest.net",
+      "server_port": 80,
+      "uuid": "475175eb-b0c7-4d14-9047-bc06295a77c2",
+      "transport": {
+        "type": "ws",
+        "path": "/melo/is/needed",
+        "headers": {
+          "Host": "ch1.dontbow.store."
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "@Hiddify_Nexttt DarkArmy 2 🎃 § 1",
+      "server": "zula.ir",
+      "server_port": 80,
+      "uuid": "475175eb-b0c7-4d14-9047-bc06295a77c2",
+      "transport": {
+        "type": "ws",
+        "path": "/melo/is/needed",
+        "headers": {
+          "Host": "ch1.dontbow.store."
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "@Hiddify_Nexttt DarkArmy 3 🎃 § 2",
+      "server": "ch1.melobigg.site",
+      "server_port": 8443,
+      "uuid": "770e635e-e327-4b0b-98bf-4e341f1d28db",
+      "tls": {
+        "enabled": true,
+        "server_name": "ch1.melobigg.site",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/melov2ray",
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "@Hiddify_Nexttt DarkArmy 4 🎃 § 3",
+      "server": "www.parsvds.ir",
+      "server_port": 8080,
+      "uuid": "939b318c-4021-411f-b28c-33f89a1a49b8",
+      "transport": {
+        "type": "ws",
+        "path": "/SHHPROXY",
+        "headers": {
+          "Host": "SHHproxy-shhPROXY-SHHproxy.joinTELEGRAM.net."
+        },
+        "max_early_data": 8080,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "@Hiddify_Nexttt DarkArmy 5 🎃 § 4",
+      "server": "zula.ir",
+      "server_port": 8080,
+      "uuid": "b7dd8bd5-60c7-40fd-a65b-0fdbf8848e83",
+      "transport": {
+        "type": "ws",
+        "path": "/SHHPROXY",
+        "headers": {
+          "Host": "SHHproxy--shhPROXY--SHHproxy.joinTELEGRAM.net."
+        },
+        "max_early_data": 8080,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "@Hiddify_Nexttt DarkArmy 6 🎃 § 5",
+      "server": "185.146.173.68",
+      "server_port": 2095,
+      "uuid": "-----DIGIV2RAY----",
+      "transport": {
+        "type": "ws",
+        "path": "/DigiconnecT",
+        "headers": {
+          "Host": "QUENTIN--_--DiG.radiotehran.org."
+        },
+        "max_early_data": 1024,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "@Hiddify_Nexttt DarkArmy 7 🎃 § 6",
+      "server": "www.Speedtest.Net",
+      "server_port": 2095,
+      "uuid": "-----DIGIV2RAY----",
+      "transport": {
+        "type": "ws",
+        "path": "/DigiconnecT",
+        "headers": {
+          "Host": "www.speedtest.net.ftp.debian.org.xn--ihqvla424c49bba047b50okggl0rcfo5o3aus3a.website."
+        },
+        "max_early_data": 1024,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "@Hiddify_Nexttt DarkArmy 8 🎃 § 7",
+      "server": "zula.ir",
+      "server_port": 2095,
+      "uuid": "-----DIGIV2RAY----",
+      "transport": {
+        "type": "ws",
+"path": "/DigiconnecT",
+        "headers": {
+          "Host": "QUENTIN--_--DiG.radiotehran.org."
+        },
+        "max_early_data": 1024,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "@Hiddify_Nexttt DarkArmy 9 🎃 § 8",
+      "server": "www.parsvds.ir",
+      "server_port": 8080,
+      "uuid": "5af3a353-c53f-4800-98dc-d44609ad11f2",
+      "transport": {
+        "type": "ws",
+        "path": "/VPNCUSTOMIZE",
+        "headers": {
+          "Host": "VPNcustomize-vpnCUSTOMIZE-VPNcustomize.CUSTOMIZEspeedtest.net."
+        },
+        "max_early_data": 8080,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "@Hiddify_Nexttt DarkArmy 10 🎃 § 9",
+      "server": "108.162.192.188",
+      "server_port": 2053,
+      "uuid": "Telegram-NUFiLTER",
+      "tls": {
+        "enabled": true,
+        "server_name": "kopoli.asve.ir",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "randomized"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/telegram-NUFiLTER,telegram-NUFiLTER,telegram-NUFiLTER,telegram-NUFiLTER",
+        "headers": {
+          "Host": "kopoli.asve.ir"
+        },
+        "max_early_data": 2048,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "@Hiddify_Nexttt DarkArmy 11 🎃 § 10",
+      "server": "www.parsvds.ir",
+      "server_port": 8080,
+      "uuid": "5af3a353-c53f-4800-98dc-d44609ad11f2",
+      "transport": {
+        "type": "ws",
+        "path": "/VPNCUSTOMIZE",
+        "headers": {
+          "Host": "VPNcustomize-vpnCUSTOMIZE-VPNcustomize.CUSTOMIZEspeedtest.net."
+        },
+        "max_early_data": 8080,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "@Hiddify_Nexttt DarkArmy 12 🎃 § 11",
+      "server": "45.147.77.110",
+      "server_port": 36620,
+      "uuid": "8d6fdde0-bdaf-4dcc-8f39-9ba5a5706705",
+      "transport": {
+        "type": "http",
+        "path": "/",
+        "method": "GET"
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vmess",
+      "tag": "@Hiddify_Nexttt DarkArmy 13 🎃 § 12",
+      "server": "45.147.77.110",
+      "server_port": 13736,
+      "uuid": "5b24cb20-908c-435e-cb83-815950bea779",
+      "security": "auto",
+      "authenticated_length": true,
+      "transport": {
+        "type": "http",
+        "path": "/",
+        "method": "GET"
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "@Hiddify_Nexttt DarkArmy 14 🎃 § 13",
+      "server": "178.239.147.38",
+      "server_port": 35799,
+      "uuid": "bd4d0bec-82d5-414c-8a08-c08c39c3d1b3",
+      "transport": {
+        "type": "http",
+        "host": "telewebion.com",
+        "path": "/",
+        "method": "GET"
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "@Hiddify_Nexttt DarkArmy 15 🎃 § 14",
+      "server": "193.151.150.22",
+      "server_port": 8443,
+      "uuid": "a7903f91-918b-48e7-878f-e16a2b33ef0f",
+      "transport": {
+        "type": "http",
+        "host": "telewebion.com",
+        "path": "/",
+        "method": "GET"
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "@Hiddify_Nexttt DarkArmy 16 🎃 § 15",
+      "server": "194.33.28.15",
+      "server_port": 8008,
+      "uuid": "2de2b89e-6488-4100-b9ae-bff4c288c61a",
+      "transport": {
+        "type": "http",
+        "host": "nobitex.ir",
+        "path": "/",
+        "method": "GET"
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "@Hiddify_Nexttt DarkArmy 17 🎃 § 16",
+      "server": "79.175.134.87",
+      "server_port": 443,
+      "uuid": "a95554f9-a298-416d-9cb8-6af7cd709789",
+"transport": {
+        "type": "http",
+        "host": "fast.com",
+        "path": "/",
+        "method": "GET"
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "@Hiddify_Nexttt DarkArmy 18 🎃§ 17",
+      "server": "zula.ir",
+      "server_port": 2095,
+      "uuid": "-----DIGIV2RAY----",
+      "transport": {
+        "type": "ws",
+        "path": "/DigiconnecT",
+        "headers": {
+          "Host": "QUENTIN--_--DiG.radiotehran.org."
+        },
+        "max_early_data": 1024,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "@Hiddify_Nexttt DarkArmy 19 🎃§ 18",
+      "server": "www.Speedtest.Net",
+      "server_port": 2095,
+      "uuid": "-----DIGIV2RAY----",
+      "transport": {
+        "type": "ws",
+        "path": "/DigiconnecT",
+        "headers": {
+          "Host": "www.speedtest.net.ftp.debian.org.xn--ihqvla424c49bba047b50okggl0rcfo5o3aus3a.website."
+        },
+        "max_early_data": 1024,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "@Hiddify_Nexttt DarkArmy 20 🎃§ 19",
+      "server": "185.146.173.68",
+      "server_port": 2095,
+      "uuid": "-----DIGIV2RAY----",
+      "transport": {
+        "type": "ws",
+        "path": "/DigiconnecT",
+        "headers": {
+          "Host": "QUENTIN--_--DiG.radiotehran.org."
+        },
+        "max_early_data": 1024,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "@Hiddify_Nexttt DarkArmy 21 🎃§ 20",
+      "server": "185.146.173.58",
+      "server_port": 8080,
+      "uuid": "939b318c-4021-411f-b28c-33f89a1a49b8",
+      "transport": {
+        "type": "ws",
+        "path": "/SHHPROXY",
+        "headers": {
+          "Host": "SHHproxy-shhPROXY-SHHproxy.joinTELEGRAM.net."
+        },
+        "max_early_data": 8080,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "@Hiddify_Nexttt DarkArmy 22 🎃§ 21",
+      "server": "188.114.98.224",
+      "server_port": 8080,
+      "uuid": "b7dd8bd5-60c7-40fd-a65b-0fdbf8848e83",
+      "transport": {
+        "type": "ws",
+        "path": "/SHHPROXY",
+        "headers": {
+          "Host": "SHHproxy--shhPROXY--SHHproxy.joinTELEGRAM.net."
+        },
+        "max_early_data": 8080,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "dns",
+      "tag": "dns-out"
+    },
+    {
+      "type": "direct",
+      "tag": "direct"
+    },
+    {
+      "type": "direct",
+      "tag": "direct-fragment",
+      "tls_fragment": {
+        "enabled": true,
+        "size": "1-500",
+        "sleep": "0-500"
+      }
+    },
+    {
+      "type": "direct",
+      "tag": "bypass"
+    },
+    {
+      "type": "block",
+      "tag": "block"
+    }
+  ],
+  "route": {
+    "rules": [
+      {
+        "rule_set": [
+          "geoip-ir",
+          "geosite-ir"
+        ],
+        "outbound": "direct"
+      },
+      {
+        "inbound": "dns-in",
+        "outbound": "dns-out"
+      },
+      {
+        "port": 53,
+        "outbound": "dns-out"
+      },
+      {
+        "clash_mode": "Direct",
+        "outbound": "direct"
+      },
+      {
+        "clash_mode": "Global",
+        "outbound": "select"
+      }
+    ],
+    "rule_set": [
+      {
+        "type": "remote",
+        "tag": "geoip-ir",
+        "format": "binary",
+        "url": "https://raw.githubusercontent.com/hiddify/hiddify-geo/rule-set/country/geoip-ir.srs",
+"update_interval": "120h0m0s"
+      },
+      {
+        "type": "remote",
+        "tag": "geosite-ir",
+        "format": "binary",
+        "url": "https://raw.githubusercontent.com/hiddify/hiddify-geo/rule-set/country/geosite-ir.srs",
+        "update_interval": "120h0m0s"
+      }
+    ],
+    "final": "select",
+    "auto_detect_interface": true,
+    "override_android_vpn": true
+  },
+  "experimental": {
+    "cache_file": {
+      "enabled": true,
+      "path": "clash.db"
+    },
+    "clash_api": {
+      "external_controller": "127.0.0.1:6756",
+      "secret": "gnV3eW8Q4elYTV2-"
+    }
+  }
+}
