@@ -34,11 +34,6 @@
     ],
     "rules": [
       {
-        "domain_suffix": ".ir",
-        "geosite": "ir",
-        "server": "dns-direct"
-      },
-      {
         "domain": "cp.cloudflare.com",
         "server": "dns-remote",
         "rewrite_ttl": 3000
@@ -47,16 +42,16 @@
     "final": "dns-remote",
     "static_ips": {
       "sky.rethinkdns.com": [
+        "2a06:98c1:3122::",
+        "2a06:98c1:3123::",
         "188.114.97.3",
         "188.114.96.3",
-        "2a06:98c1:3121::3",
-        "2a06:98c1:3120::3",
         "104.17.148.22",
         "104.17.147.22",
-        "188.114.96.3",
-        "188.114.97.3",
-        "2a06:98c1:3121::3",
-        "2a06:98c1:3120::3"
+        "2a06:98c1:3122::",
+        "2a06:98c1:3123::",
+        "188.114.97.1",
+        "188.114.96.1"
       ]
     },
     "independent_cache": true
@@ -67,7 +62,6 @@
       "tag": "tun-in",
       "mtu": 9000,
       "inet4_address": "172.19.0.1/28",
-      "inet6_address": "fdfe:dcba:9876::1/126",
       "auto_route": true,
       "strict_route": true,
       "endpoint_independent_nat": true,
@@ -87,9 +81,7 @@
       "type": "direct",
       "tag": "dns-in",
       "listen": "127.0.0.1",
-      "listen_port": 6450,
-      "override_address": "1.1.1.1",
-      "override_port": 53
+      "listen_port": 6450
     }
   ],
   "outbounds": [
@@ -98,11 +90,14 @@
       "tag": "select",
       "outbounds": [
         "auto",
-        "ServerPremium § 0",
-        "ServerPremium § 1",
-        "ServerPremium § 2",
-        "ServerPremium § 3",
-        "ServerPremium § 4"
+        "@Hiddify_Nexttt پریمیوم§ 0",
+        "@Hiddify_Nexttt پریمیوم§ 1",
+        "@Hiddify_Nexttt پریمیوم§ 2",
+        "@Hiddify_Nexttt پریمیوم§ 3",
+        "@Hiddify_Nexttt پریمیوم§ 4",
+        "@Hiddify_Nexttt پریمیوم§ 5",
+        "@Hiddify_Nexttt پریمیوم§ 6",
+        "@Hiddify_Nexttt پریمیوم§ 7"
       ],
       "default": "auto"
     },
@@ -110,97 +105,151 @@
       "type": "urltest",
       "tag": "auto",
       "outbounds": [
-        "ServerPremium § 0",
-        "ServerPremium § 1",
-        "ServerPremium § 2",
-        "ServerPremium § 3",
-        "ServerPremium § 4"
+        "@Hiddify_Nexttt پریمیوم§ 0",
+        "@Hiddify_Nexttt پریمیوم§ 1",
+        "@Hiddify_Nexttt پریمیوم§ 2",
+        "@Hiddify_Nexttt پریمیوم§ 3",
+        "@Hiddify_Nexttt پریمیوم§ 4",
+        "@Hiddify_Nexttt پریمیوم§ 5",
+        "@Hiddify_Nexttt پریمیوم§ 6",
+        "@Hiddify_Nexttt پریمیوم§ 7"
       ],
-      "url": "http://cp.cloudflare.com/",
+      "url": "http://connectivitycheck.gstatic.com/generate_204",
       "interval": "10m0s",
       "idle_timeout": "1h40m0s"
     },
     {
       "type": "wireguard",
-      "tag": "ServerPremium § 0",
+      "tag": "@Hiddify_Nexttt پریمیوم§ 0",
       "local_address": [
         "172.16.0.2/24",
-        "2606:4700:110:8cc2:f175:8570:a3de:4d32/128"
+        "2606:4700:110:89a8:c084:6afc:376f:9eca/128"
       ],
-      "private_key": "0Ci74k7aJV7BAalwUQ22Xvl6FaPrfEGTI3oyo2S4iXY=",
-      "server": "162.159.195.194",
-      "server_port": 1074,
+      "private_key": "0OSvshp8naPI6AKlpQJ31LPakfcsUUQUqgH4CbckW3Q=",
+      "server": "162.159.192.114",
+      "server_port": 945,
       "peer_public_key": "bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=",
-      "reserved": "AAAA",
-      "mtu": 1280,
+      "reserved": "1Rwu",
+      "mtu": 1330,
       "fake_packets": "5-10",
       "fake_packets_size": "40-100",
       "fake_packets_delay": "20-250"
     },
     {
       "type": "wireguard",
-      "tag": "ServerPremium § 1",
+      "tag": "@Hiddify_Nexttt پریمیوم§ 1",
       "local_address": [
         "172.16.0.2/24",
-        "2606:4700:110:809d:d51b:8ecd:db5d:5b9c/128"
+        "2606:4700:110:8fd5:a052:9d9d:4caf:518a/128"
       ],
-      "private_key": "QLQkh3ga4JSAhUqJxrhWXC+ObZ5NKkbsBKXnU/htvmE=",
-      "server": "188.114.99.3",
-      "server_port": 942,
+      "private_key": "ODeEahIBT53l4n3ShMOSOxj5AuLfCJ9u92JYSOVlRVw=",
+      "server": "162.159.192.163",
+      "server_port": 1018,
       "peer_public_key": "bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=",
-      "reserved": "AAAA",
-      "mtu": 1280,
+      "reserved": "33Q+",
+      "mtu": 1330,
+"fake_packets": "5-10",
+      "fake_packets_size": "40-100",
+      "fake_packets_delay": "20-250"
+    },
+    {
+      "type": "wireguard",
+      "tag": "@Hiddify_Nexttt پریمیوم§ 2",
+      "local_address": [
+        "172.16.0.2/24",
+        "2606:4700:110:8f6a:7861:b4da:78ee:1bbb/128"
+      ],
+      "private_key": "4NI1KiwKY0b5ISqhN9SEAwvRyUTGJNUjd0uiTcdMnUI=",
+      "server": "162.159.195.247",
+      "server_port": 939,
+      "peer_public_key": "bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=",
+      "reserved": "Srxq",
+      "mtu": 1330,
       "fake_packets": "5-10",
       "fake_packets_size": "40-100",
       "fake_packets_delay": "20-250"
     },
     {
       "type": "wireguard",
-      "tag": "ServerPremium § 2",
+      "tag": "@Hiddify_Nexttt پریمیوم§ 3",
       "local_address": [
         "172.16.0.2/24",
-        "2606:4700:110:8287:a73b:7750:74a9:5e20/128"
-],
-      "private_key": "sMze0c5ghdptj5BHhnZr0PE5XwC+8x1Uu/fanOGi3nU=",
-      "server": "188.114.98.215",
-      "server_port": 943,
+        "2606:4700:110:89a7:21dd:1038:435c:2024/128"
+      ],
+      "private_key": "kNyoy6yw8EQKKFpc/g0jBUoNab8H/Lli6fu+U+YdEEQ=",
+      "server": "162.159.192.107",
+      "server_port": 3476,
       "peer_public_key": "bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=",
-      "reserved": "AAAA",
-      "mtu": 1280,
+      "reserved": "T5Od",
+      "mtu": 1330,
       "fake_packets": "5-10",
       "fake_packets_size": "40-100",
       "fake_packets_delay": "20-250"
     },
     {
       "type": "wireguard",
-      "tag": "ServerPremium § 3",
+      "tag": "@Hiddify_Nexttt پریمیوم§ 4",
       "local_address": [
         "172.16.0.2/24",
-        "2606:4700:110:84c8:ac77:397d:6336:9599/128"
+        "2606:4700:110:8264:c83e:fe05:8a2c:fb04/128"
       ],
-      "private_key": "oF2UoC7tMJieX+K27xDIAlJnK2q4VQNhB+rgWSBOY14=",
-      "server": "188.114.98.75",
-      "server_port": 943,
+      "private_key": "WBNOeqVDqAJyjRbz7zz/zIn+h5Xt5UoQH21OUFD6f1c=",
+      "server": "162.159.192.104",
+      "server_port": 1014,
       "peer_public_key": "bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=",
-      "reserved": "AAAA",
-      "mtu": 1280,
+      "reserved": "AGso",
+      "mtu": 1330,
       "fake_packets": "5-10",
       "fake_packets_size": "40-100",
       "fake_packets_delay": "20-250"
     },
     {
       "type": "wireguard",
-      "tag": "ServerPremium § 4",
+      "tag": "@Hiddify_Nexttt پریمیوم§ 5",
       "local_address": [
         "172.16.0.2/24",
-        "2606:4700:110:8e34:ab02:96d5:f640:c1a8/128"
+        "2606:4700:110:8fa9:2f97:f64f:73f8:823d/128"
       ],
-      "private_key": "0GqbnZ9m//s08/kJnh288nu+6adnTgu+MbyTAy7CIX4=",
-      "server": "162.159.195.178",
-      "server_port": 943,
+      "private_key": "QOPGH2xKvVfml7Y46y0a9eAzM+J24ufqKPqHY4qnWmg=",
+      "server": "162.159.192.104",
+      "server_port": 5279,
       "peer_public_key": "bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=",
-      "reserved": "AAAA",
-      "mtu": 1280,
+      "reserved": "inwP",
+      "mtu": 1330,
+      "fake_packets": "5-10",
+      "fake_packets_size": "40-100",
+      "fake_packets_delay": "20-250"
+    },
+    {
+      "type": "wireguard",
+      "tag": "@Hiddify_Nexttt پریمیوم§ 6",
+      "local_address": [
+        "172.16.0.2/24",
+        "2606:4700:110:8e0f:2487:edd:9875:b6e8/128"
+      ],
+      "private_key": "CBl9MluRw4mWgIENBy5NFPJQv4zjBDov/68xhDF/hGA=",
+      "server": "162.159.192.114",
+      "server_port": 1014,
+      "peer_public_key": "bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=",
+      "reserved": "JgUZ",
+      "mtu": 1330,
+      "fake_packets": "5-10",
+      "fake_packets_size": "40-100",
+      "fake_packets_delay": "20-250"
+    },
+    {
+      "type": "wireguard",
+      "tag": "@Hiddify_Nexttt پریمیوم§ 7",
+      "local_address": [
+        "172.16.0.2/24",
+        "2606:4700:110:8940:6dc3:89da:ee0a:c83b/128"
+      ],
+      "private_key": "0HWExJGDE4GPnOrC+m++YWpzIupPlVz6l7ZH6NAzD0M=",
+      "server": "162.159.192.163",
+      "server_port": 2408,
+      "peer_public_key": "bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=",
+      "reserved": "U9ok",
+      "mtu": 1330,
       "fake_packets": "5-10",
       "fake_packets_size": "40-100",
       "fake_packets_delay": "20-250"
@@ -229,16 +278,17 @@
     {
       "type": "block",
       "tag": "block"
-    }
+}
   ],
   "route": {
-    "geoip": {
-      "path": "geo-assets/sagernet-sing-geoip-geoip.db"
-    },
-    "geosite": {
-      "path": "geo-assets/sagernet-sing-geosite-geosite.db"
-    },
     "rules": [
+      {
+        "rule_set": [
+          "geoip-ir",
+          "geosite-ir"
+        ],
+        "outbound": "direct"
+      },
       {
         "inbound": "dns-in",
         "outbound": "dns-out"
@@ -254,12 +304,22 @@
       {
         "clash_mode": "Global",
         "outbound": "select"
+      }
+    ],
+    "rule_set": [
+      {
+        "type": "remote",
+        "tag": "geoip-ir",
+        "format": "binary",
+        "url": "https://raw.githubusercontent.com/hiddify/hiddify-geo/rule-set/country/geoip-ir.srs",
+        "update_interval": "120h0m0s"
       },
       {
-        "domain_suffix": ".ir",
-        "geosite": "ir",
-        "geoip": "ir",
-        "outbound": "bypass"
+        "type": "remote",
+        "tag": "geosite-ir",
+        "format": "binary",
+        "url": "https://raw.githubusercontent.com/hiddify/hiddify-geo/rule-set/country/geosite-ir.srs",
+        "update_interval": "120h0m0s"
       }
     ],
     "final": "select",
@@ -273,7 +333,7 @@
     },
     "clash_api": {
       "external_controller": "127.0.0.1:6756",
-      "secret": "cqZ1bUbZF3e1BQ9h"
+      "secret": "6vsxjNUeUfDjLU-9"
     }
   }
 }
