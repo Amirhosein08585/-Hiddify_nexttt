@@ -94,7 +94,7 @@
       "tag": "select",
       "outbounds": [
         "auto",
-        "@meli_proxyy § 0"
+        "🇫🇮@Hiddify_nexttt § 0"
       ],
       "default": "auto"
     },
@@ -102,7 +102,7 @@
       "type": "urltest",
       "tag": "auto",
       "outbounds": [
-        "@meli_proxyy § 0"
+        "🇫🇮@Hiddify_nexttt § 0"
       ],
       "url": "http://connectivitycheck.gstatic.com/generate_204",
       "interval": "10m0s",
@@ -110,7 +110,7 @@
     },
     {
       "type": "vless",
-      "tag": "@meli_proxyy § 0",
+      "tag": "🇫🇮@Hiddify_nexttt § 0",
       "server": "104.16.11.133",
       "server_port": 80,
       "uuid": "58427fa3-02a6-4f03-9631-ccd4640f2e34",
