@@ -34,6 +34,10 @@
     ],
     "rules": [
       {
+        "domain": "www.speedtest.net",
+        "server": "dns-direct"
+      },
+      {
         "domain": "cp.cloudflare.com",
         "server": "dns-remote",
         "rewrite_ttl": 3000
@@ -53,8 +57,8 @@
         "104.17.148.22",
         "172.67.214.246",
         "104.21.83.62",
-        "2606:4700:3030::6815:533e",
-        "2606:4700:3030::ac43:d6f6"
+        "2606:4700:3030::ac43:d6f6",
+        "2606:4700:3030::6815:533e"
       ]
     },
     "independent_cache": true
@@ -94,7 +98,7 @@
       "tag": "select",
       "outbounds": [
         "auto",
-        "Vip Server§ 0"
+        "🇫🇮@Hiddify_nexttt § 0"
       ],
       "default": "auto"
     },
@@ -102,7 +106,7 @@
       "type": "urltest",
       "tag": "auto",
       "outbounds": [
-        "Vip Server§ 0"
+        "🇫🇮@Hiddify_nexttt § 0"
       ],
       "url": "http://connectivitycheck.gstatic.com/generate_204",
       "interval": "10m0s",
@@ -110,16 +114,17 @@
     },
     {
       "type": "vless",
-      "tag": "Vip Server§ 0",
-      "server": "104.16.11.133",
-      "server_port": 80,
-      "uuid": "0937892c-40b7-46ac-8483-65bbe555b782",
+      "tag": "🇫🇮@Hiddify_nexttt § 0",
+      "server": "www.speedtest.net",
+      "server_port": 8880,
+      "uuid": "cb644cde-6192-44a9-f4b5-11c20c3b26a6",
       "transport": {
         "type": "ws",
-        "path": "/@Vpn_Mikey%D8%8C@Vpn_Mikey",
+        "path": "/telegram-NUFiLTER,telegram-NUFiLTER,telegram-NUFiLTER,telegram-NUFiLTER",
         "headers": {
-          "Host": "Vpn_Mikey-speedtest.net.Amir-Mikey.Tech."
+          "Host": "116.v.v.y.www.speedtest.net.ftp.debian.org.bklink.iR."
         },
+        "max_early_data": 2048,
         "early_data_header_name": "Sec-WebSocket-Protocol"
       },
       "packet_encoding": ""
@@ -203,7 +208,7 @@
     },
     "clash_api": {
       "external_controller": "127.0.0.1:6756",
-      "secret": "7CuB4jdloGVyPlnO"
+      "secret": "XSH-HYbRqFVeHLSo"
     }
   }
 }
