@@ -49,12 +49,12 @@
     "final": "dns-remote",
     "static_ips": {
       "sky.rethinkdns.com": [
-        "104.17.147.22",
         "104.17.148.22",
+        "104.17.147.22",
         "172.67.214.246",
         "104.21.83.62",
-        "2606:4700:3030::6815:533e",
-        "2606:4700:3030::ac43:d6f6"
+        "2606:4700:3030::ac43:d6f6",
+        "2606:4700:3030::6815:533e"
       ]
     },
     "independent_cache": true
@@ -94,9 +94,7 @@
       "tag": "select",
       "outbounds": [
         "auto",
-        "🇩🇪 @Hiddify_Nexttt 🇩🇪 § 0",
-        "🇩🇪 @Hiddify_Nexttt 🇩🇪 § 1",
-        "🇩🇪 @Hiddify_Nexttt 🇩🇪 § 2"
+        "🇫🇮 @Hiddify_Nexttt 🇫🇮 § 0"
       ],
       "default": "auto"
     },
@@ -104,9 +102,7 @@
       "type": "urltest",
       "tag": "auto",
       "outbounds": [
-        "🇩🇪 @Hiddify_Nexttt 🇩🇪 § 0",
-        "🇩🇪 @Hiddify_Nexttt 🇩🇪 § 1",
-        "🇩🇪 @Hiddify_Nexttt 🇩🇪 § 2"
+        "🇫🇮 @Hiddify_Nexttt 🇫🇮 § 0"
       ],
       "url": "http://connectivitycheck.gstatic.com/generate_204",
       "interval": "10m0s",
@@ -114,51 +110,16 @@
     },
     {
       "type": "vless",
-      "tag": "🇩🇪 @Hiddify_Nexttt 🇩🇪 § 0",
-      "server": "104.17.251.93",
-      "server_port": 8080,
-      "uuid": "4df53e50-abb8-44e8-9ab8-bb2799737549",
+      "tag": "🇫🇮 @Hiddify_Nexttt 🇫🇮 § 0",
+      "server": "104.16.11.133",
+      "server_port": 80,
+      "uuid": "dcea79b2-9f40-44db-b8ab-3a17718c532a",
       "transport": {
         "type": "ws",
-        "path": "/Telegram:@vmessorg-Telegram:@vmessorg-Telegram:@vmessorg",
+        "path": "/@Vpn_Mikey%D8%8C@Vpn_Mikey",
         "headers": {
-          "Host": "join-to.vmessorg.Community."
+          "Host": "Vpn_Mikey-speedtest.net.Amir-Mikey.Tech."
         },
-        "max_early_data": 8080,
-        "early_data_header_name": "Sec-WebSocket-Protocol"
-      },
-      "packet_encoding": ""
-    },
-    {
-      "type": "vless",
-      "tag": "🇩🇪 @Hiddify_Nexttt 🇩🇪 § 1",
-      "server": "104.18.141.45",
-      "server_port": 8080,
-      "uuid": "4df53e50-abb8-44e8-9ab8-bb2799737549",
-      "transport": {
-        "type": "ws",
-        "path": "/Telegram:@vmessorg-Telegram:@vmessorg-Telegram:@vmessorg",
-        "headers": {
-          "Host": "join-to.vmessorg.Community."
-        },
-        "max_early_data": 8080,
-        "early_data_header_name": "Sec-WebSocket-Protocol"
-      },
-      "packet_encoding": ""
-    },
-    {
-      "type": "vless",
-      "tag": "🇩🇪 @Hiddify_Nexttt 🇩🇪 § 2",
-      "server": "104.18.64.120",
-      "server_port": 8080,
-      "uuid": "4df53e50-abb8-44e8-9ab8-bb2799737549",
-      "transport": {
-        "type": "ws",
-        "path": "/Telegram:@vmessorg-Telegram:@vmessorg-Telegram:@vmessorg",
-        "headers": {
-          "Host": "join-to.vmessorg.Community."
-        },
-        "max_early_data": 8080,
         "early_data_header_name": "Sec-WebSocket-Protocol"
       },
       "packet_encoding": ""
@@ -242,7 +203,7 @@
     },
     "clash_api": {
       "external_controller": "127.0.0.1:6756",
-      "secret": "ODf0csSNKRSkQFT6"
+      "secret": "SFtOv2hLUySI3iSG"
     }
   }
 }
