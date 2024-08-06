@@ -118,7 +118,7 @@
         "type": "ws",
         "path": "/@Vpn_Mikey%D8%8C@Vpn_Mikey",
         "headers": {
-          "Host": "Vpn_Mikey-speedtest.net.Amir-Mikey.Tech."
+          "Host": "Vpn_Mikey-speedtest.net.Amir-Mikey.Tecch."
         },
         "early_data_header_name": "Sec-WebSocket-Protocol"
       },
