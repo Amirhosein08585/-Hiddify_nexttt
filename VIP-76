@@ -101,8 +101,8 @@
       "tag": "select",
       "outbounds": [
         "auto",
-         "🇩🇪 @Hiddify_nexttt🇩🇪 § 0",
-         "🇩🇪 @Hiddify_nexttt🇩🇪 § 1"
+     "🇩🇪 @Hiddify_nexttt🇩🇪 § 0",
+        "🇩🇪 @Hiddify_nexttt🇩🇪 § 1"
       ],
       "default": "auto"
     },
@@ -133,9 +133,9 @@
       },
       "packet_encoding": ""
     },
-{
+    {
       "type": "vless",
-      "tag": " 🇩🇪 @Hiddify_nexttt🇩🇪 § 1",
+      "tag": "🇩🇪 @Hiddify_nexttt🇩🇪 § 1",
       "server": "185.146.173.58",
       "server_port": 8080,
       "uuid": "aa7ddd23-7b01-48ba-9bf3-ad951342cea2",
