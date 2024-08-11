@@ -91,8 +91,8 @@
       "tag": "select",
       "outbounds": [
         "auto",
-        "v2rayng_vpnn@v2rayng_vpnn@v2rayng_vpnn@v2rayng_vpnn@v2rayng_vpnn@v2rayng_vpnn@v2rayng_vpnn@v2rayng_vpnn@v2rayng_vpnn@v2rayng_vpnn@v2 § 0",
-        "v2rayng_vpnn@v2rayng_vpnn@v2rayng_vpnn@v2rayng_vpnn@v2rayng_vpnn@v2rayng_vpnn@v2rayng_vpnn@v2rayng_vpnn@v2rayng_vpnn@v2rayng_vpnn@v2 § 1"
+        "@Hiddify_nexttt § 0",
+        "@Hiddify_nexttt § 1"
       ],
       "default": "auto"
     },
