@@ -1,0 +1,555 @@
+{
+  "log": {
+    "level": "warn",
+    "output": "box.log",
+    "timestamp": true
+  },
+  "dns": {
+    "servers": [
+      {
+        "tag": "dns-remote",
+        "address": "udp://1.1.1.1",
+        "address_resolver": "dns-direct"
+      },
+      {
+        "tag": "dns-trick-direct",
+        "address": "https://sky.rethinkdns.com/",
+        "detour": "direct-fragment"
+      },
+      {
+        "tag": "dns-direct",
+        "address": "1.1.1.1",
+        "address_resolver": "dns-local",
+        "detour": "direct"
+      },
+      {
+        "tag": "dns-local",
+        "address": "local",
+        "detour": "direct"
+      },
+      {
+        "tag": "dns-block",
+        "address": "rcode://success"
+      }
+    ],
+    "rules": [
+      {
+        "domain": [
+          "parsvds.ir",
+          "parsvds.ir",
+          "www.speedtest.net"
+        ],
+        "server": "dns-direct"
+      },
+      {
+        "domain_suffix": ".ir",
+        "geosite": "ir",
+        "server": "dns-direct"
+      },
+      {
+        "domain": "cp.cloudflare.com",
+        "server": "dns-remote",
+        "rewrite_ttl": 3000
+      }
+    ],
+    "final": "dns-remote",
+    "static_ips": {
+      "sky.rethinkdns.com": [
+        "104.21.69.44",
+        "172.67.204.84",
+        "2606:4700:3031::ac43:cc54",
+        "2606:4700:3032::6815:452c",
+        "104.17.148.22",
+        "104.17.147.22",
+        "188.114.97.3",
+        "188.114.96.3",
+        "2a06:98c1:3120::3",
+        "2a06:98c1:3121::3"
+      ]
+    },
+    "independent_cache": true
+  },
+  "inbounds": [
+    {
+      "type": "tun",
+      "tag": "tun-in",
+      "mtu": 9000,
+      "inet4_address": "172.19.0.1/28",
+      "auto_route": true,
+      "strict_route": true,
+      "endpoint_independent_nat": true,
+      "stack": "mixed",
+      "sniff": true,
+      "sniff_override_destination": true
+    },
+    {
+      "type": "mixed",
+      "tag": "mixed-in",
+      "listen": "127.0.0.1",
+      "listen_port": 2334,
+      "sniff": true,
+      "sniff_override_destination": true
+    },
+    {
+      "type": "direct",
+      "tag": "dns-in",
+      "listen": "127.0.0.1",
+      "listen_port": 6450,
+      "override_address": "1.1.1.1",
+      "override_port": 53
+    }
+  ],
+  "outbounds": [
+    {
+      "type": "selector",
+      "tag": "select",
+      "outbounds": [
+        "auto",
+        "@Hiddify_nexttt  § 0",
+        "@Hiddify_nexttt  § 1",
+        "@Hiddify_nexttt  § 2",
+        "@Hiddify_nexttt  § 3",
+        "@Hiddify_nexttt  § 4",
+        "@Hiddify_nexttt  § 5",
+        "@Hiddify_nexttt  § 6",
+        "@Hiddify_nexttt  § 7",
+        "@Hiddify_nexttt  § 8",
+        "@Hiddify_nexttt  § 9",
+        "@Hiddify_nexttt  § 10",
+        "@Hiddify_nexttt  § 11",
+        "@Hiddify_nexttt  § 12",
+        "@Hiddify_nexttt  § 13",
+        "@Hiddify_nexttt  § 14",
+        "@Hiddify_nexttt  § 15",
+        "@Hiddify_nexttt  § 16",
+        "@Hiddify_nexttt  § 17",
+        "@Hiddify_nexttt  § 18",
+        "@Hiddify_nexttt  § 19",
+        "@Hiddify_nexttt  § 20",
+        "@Hiddify_nexttt  § 21"
+      ],
+      "default": "auto"
+    },
+    {
+      "type": "urltest",
+      "tag": "auto",
+      "outbounds": [
+        "@Hiddify_nexttt  § 0",
+        "@Hiddify_nexttt  § 1",
+        "@Hiddify_nexttt  § 2",
+        "@Hiddify_nexttt  § 3",
+        "@Hiddify_nexttt  § 4",
+        "@Hiddify_nexttt  § 5",
+        "@Hiddify_nexttt  § 6",
+        "@Hiddify_nexttt  § 7",
+        "@Hiddify_nexttt  § 8",
+        "@Hiddify_nexttt  § 9",
+        "@Hiddify_nexttt  § 10",
+        "@Hiddify_nexttt  § 11",
+        "@Hiddify_nexttt  § 12",
+        "@Hiddify_nexttt  § 13",
+        "@Hiddify_nexttt  § 14",
+        "@Hiddify_nexttt  § 15",
+        "@Hiddify_nexttt  § 16",
+        "@Hiddify_nexttt  § 17",
+        "@Hiddify_nexttt  § 18",
+        "@Hiddify_nexttt  § 19",
+        "@Hiddify_nexttt  § 20",
+        "@Hiddify_nexttt  § 21"
+      ],
+      "url": "http://cp.cloudflare.com/",
+      "interval": "10m0s",
+      "idle_timeout": "1h40m0s"
+    },
+    {
+      "type": "shadowsocks",
+      "tag": "@Hiddify_nexttt  § 0",
+      "server": "193.17.183.40",
+      "server_port": 32563,
+      "method": "chacha20-ietf-poly1305",
+      "password": "NZ1YmZqRbPsSPcZYxU4fgB"
+    },
+    {
+      "type": "vless",
+      "tag": "@Hiddify_nexttt  § 1",
+      "server": "85.234.106.16",
+      "server_port": 29329,
+      "uuid": "a33a4892-8d1b-45f8-a9f1-cef297dc3a8f",
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "@Hiddify_nexttt  § 2",
+      "server": "199.232.169.135",
+      "server_port": 80,
+      "uuid": "f408696c-cdbe-49a1-90e9-ab602003315c",
+      "transport": {
+        "type": "ws",
+        "path": "/MinoVpnCh",
+        "headers": {
+          "Host": "googleb.net"
+        },
+        "max_early_data": 2048,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "@Hiddify_nexttt  § 3",
+      "server": "190.93.247.116",
+      "server_port": 80,
+      "uuid": "baa80013-fe75-5879-b5c4-a9534d0e6bd7",
+      "transport": {
+        "type": "ws",
+        "path": "/vless",
+        "headers": {
+          "Host": "Nl1.vless.site."
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "@Hiddify_nexttt  § 4",
+      "server": "ParsVds.ir",
+      "server_port": 8080,
+      "uuid": "4ee50f98-d646-4491-b5a5-339fd79153a4",
+      "transport": {
+        "type": "httpupgrade",
+        "path": "/speedtest.net?ed=512",
+        "headers": {
+          "Host": "h17.Xn--gmq282ekfhyys3gs.Com."
+        }
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "@Hiddify_nexttt  § 5",
+      "server": "ParsVDS.IR",
+      "server_port": 2052,
+      "uuid": "77aa2623-e6aa-4997-b829-d83a963a0581",
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "blog-free.rubika.ir.bale.com.igap.net.zcx---cplus.hhtml.nice.hg.newbalace.com.panel.TelActive.Net."
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "@Hiddify_nexttt  § 6",
+      "server": "172.67.174.202",
+      "server_port": 2052,
+      "uuid": "77aa2623-e6aa-4997-b829-d83a963a0581",
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "blog-free.rubika.ir.bale.com.igap.net.zcx---cplus.hhtml.nice.hg.newbalace.com.panel.TelActive.Net."
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "@Hiddify_nexttt  § 7",
+      "server": "172.67.199.19",
+      "server_port": 2082,
+      "uuid": "416f18ec-11f3-4648-9693-8c6480d0662d",
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "VtFzLlVc167.SaMaDzAdE.CoM"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "@Hiddify_nexttt  § 8",
+      "server": "104.21.88.50",
+      "server_port": 2082,
+      "uuid": "b120f372-72a9-4f83-ac24-31af46946849",
+      "transport": {
+        "type": "httpupgrade",
+        "path": "/",
+        "headers": {
+          "Host": "blog-free.rubika.ir.bale.com.igap.net.zcx---cplus.hhtml.nice.hg.newbalace.com.panel.TelActive.Net."
+        }
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "@Hiddify_nexttt  § 9",
+      "server": "172.67.199.19",
+      "server_port": 2086,
+      "uuid": "838f5273-5d2d-4630-a0f5-9cc8e4aef4d6",
+      "transport": {
+        "type": "httpupgrade",
+        "path": "/",
+        "headers": {
+          "Host": "TdWwPlBs61.kOmAtSo.oRg"
+        }
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "@Hiddify_nexttt  § 10",
+      "server": "172.67.174.202",
+      "server_port": 2086,
+      "uuid": "838f5273-5d2d-4630-a0f5-9cc8e4aef4d6",
+      "transport": {
+        "type": "httpupgrade",
+        "path": "/",
+        "headers": {
+          "Host": "TdWwPlBs61.kOmAtSo.oRg"
+        }
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "@Hiddify_nexttt  § 11",
+      "server": "104.18.1.125",
+      "server_port": 2086,
+      "uuid": "838f5273-5d2d-4630-a0f5-9cc8e4aef4d6",
+      "transport": {
+        "type": "httpupgrade",
+        "path": "/",
+        "headers": {
+          "Host": "TdWwPlBs61.kOmAtSo.oRg"
+        }
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "@Hiddify_nexttt  § 12",
+      "server": "172.67.199.19",
+      "server_port": 2086,
+      "uuid": "838f5273-5d2d-4630-a0f5-9cc8e4aef4d6",
+      "transport": {
+        "type": "httpupgrade",
+        "path": "/",
+        "headers": {
+          "Host": "TdWwPlBs61.kOmAtSo.oRg"
+        }
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "@Hiddify_nexttt  § 13",
+      "server": "172.66.44.254",
+      "server_port": 2053,
+      "uuid": "89b3cbba-e6ac-485a-9481-976a0415eab9",
+      "tls": {
+        "enabled": true,
+        "server_name": "cXrOLvPn.PAgEs.dev",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "randomized"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/Telegram@V2ray_Alpha/",
+        "headers": {
+          "Host": "cXrolvpn.pagEs.DEv"
+        },
+        "max_early_data": 2560,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "@Hiddify_nexttt  § 14",
+      "server": "172.66.47.126",
+      "server_port": 443,
+      "uuid": "89b3cbba-e6ac-485a-9481-976a0415eab9",
+      "tls": {
+        "enabled": true,
+        "server_name": "00e463Dc.beSTVPn-4xi.PAgES.dEv",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/Telegram@V2ray_Alpha/",
+        "headers": {
+          "Host": "00e463Dc.beSTVPn-4xi.PAgES.dEv"
+        },
+        "max_early_data": 2560,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "@Hiddify_nexttt  § 15",
+      "server": "188.245.92.41",
+      "server_port": 443,
+      "uuid": "Filter-Shcan1",
+      "packet_encoding": ""
+    },
+    {
+      "type": "vmess",
+      "tag": "@Hiddify_nexttt  § 16",
+      "server": "188.245.92.41",
+      "server_port": 8443,
+      "uuid": "880095cd-77b6-419a-87e3-b0f843b21da1",
+      "security": "auto",
+      "authenticated_length": true
+    },
+    {
+      "type": "shadowsocks",
+      "tag": "@Hiddify_nexttt  § 17",
+      "server": "188.245.92.41",
+      "server_port": 2083,
+      "method": "aes-256-gcm",
+      "password": "1iHyzBBhhESEbisXJcAYqd6yBUD10YiAxcJ8qI9vXKM="
+    },
+    {
+      "type": "trojan",
+      "tag": "@Hiddify_nexttt  § 18",
+      "server": "188.245.92.41",
+      "server_port": 2087,
+      "password": "Filter-Shcan1"
+    },
+    {
+      "type": "vless",
+      "tag": "@Hiddify_nexttt  § 19",
+      "server": "www.speedtest.net",
+      "server_port": 2095,
+      "uuid": "telegram-id-ArV2ray",
+      "transport": {
+        "type": "ws",
+        "path": "/telegram-ArV2ry,telegram-ArV2ry,telegram-ArV2ry,telegram-ArV2ry,telegram-ArV2ry,telegram-ArV2ry,telegram-ArV2ry,telegram-ArV2ry,telegram-ArV2ry,telegram-ArV2ry,telegram-ArV2ry",
+        "headers": {
+          "Host": "6.www.speedtest.net.H.bahrane.iR."
+        },
+        "max_early_data": 2095,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "@Hiddify_nexttt  § 20",
+      "server": "www.speedtest.net",
+      "server_port": 2095,
+      "uuid": "telegram-id-ArV2ray",
+      "transport": {
+        "type": "ws",
+        "path": "/telegram-ArV2ry,telegram-ArV2ry,telegram-ArV2ry,telegram-ArV2ry,telegram-ArV2ry,telegram-ArV2ry,telegram-ArV2ry,telegram-ArV2ry,telegram-ArV2ry,telegram-ArV2ry,telegram-ArV2ry",
+        "headers": {
+          "Host": "8.V.V2.www.speedtest.net.q.debian.org.bahrane.iR."
+        },
+        "max_early_data": 2095,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "@Hiddify_nexttt  § 21",
+      "server": "www.speedtest.net",
+      "server_port": 2095,
+      "uuid": "telegram-id-ArV2ray",
+      "transport": {
+        "type": "ws",
+        "path": "/telegram-ArV2ry,telegram-ArV2ry,telegram-ArV2ry,telegram-ArV2ry,telegram-ArV2ry,telegram-ArV2ry,telegram-ArV2ry,telegram-ArV2ry,telegram-ArV2ry,telegram-ArV2ry,telegram-ArV2ry",
+        "headers": {
+          "Host": "6.V2.j.www.speedtest.net.dnschecker.tecH."
+        },
+        "max_early_data": 2095,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "dns",
+      "tag": "dns-out"
+    },
+    {
+      "type": "direct",
+      "tag": "direct"
+    },
+    {
+      "type": "direct",
+      "tag": "direct-fragment",
+      "tls_fragment": {
+        "enabled": true,
+        "size": "1-500",
+        "sleep": "0-500"
+      }
+    },
+    {
+      "type": "direct",
+      "tag": "bypass"
+    },
+    {
+      "type": "block",
+      "tag": "block"
+    }
+  ],
+  "route": {
+    "geoip": {
+      "path": "geo-assets/sagernet-sing-geoip-geoip.db"
+    },
+    "geosite": {
+      "path": "geo-assets/sagernet-sing-geosite-geosite.db"
+    },
+    "rules": [
+      {
+        "inbound": "dns-in",
+        "outbound": "dns-out"
+      },
+      {
+        "port": 53,
+        "outbound": "dns-out"
+      },
+      {
+        "clash_mode": "Direct",
+        "outbound": "direct"
+      },
+      {
+        "clash_mode": "Global",
+        "outbound": "select"
+      },
+      {
+        "domain_suffix": ".ir",
+        "geosite": "ir",
+        "geoip": "ir",
+        "outbound": "bypass"
+      }
+    ],
+    "final": "select",
+    "auto_detect_interface": true,
+    "override_android_vpn": true
+  },
+  "experimental": {
+    "cache_file": {
+      "enabled": true,
+      "path": "clash.db"
+    },
+    "clash_api": {
+      "external_controller": "127.0.0.1:6756",
+      "secret": "Nr1zTYv91xjFvECv"
+    }
+  }
+}
