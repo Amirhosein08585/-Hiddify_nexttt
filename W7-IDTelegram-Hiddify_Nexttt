@@ -1,0 +1,387 @@
+{
+  "log": {
+    "output": "box.log",
+    "timestamp": true
+  },
+  "dns": {
+    "servers": [
+      {
+        "tag": "dns-remote",
+        "address": "",
+        "address_resolver": "dns-direct"
+      },
+      {
+        "tag": "dns-trick-direct",
+        "address": "https://sky.rethinkdns.com/",
+        "detour": "direct-fragment"
+      },
+      {
+        "tag": "dns-direct",
+        "address": "",
+        "address_resolver": "dns-local",
+        "detour": "direct"
+      },
+      {
+        "tag": "dns-local",
+        "address": "local",
+        "detour": "direct"
+      },
+      {
+        "tag": "dns-block",
+        "address": "rcode://success"
+      }
+    ],
+    "rules": [
+      {
+        "domain": [
+          "",
+          "www.speedtest.net",
+          "visa.com",
+          "speedtest.net"
+        ],
+        "server": "dns-direct"
+      },
+      {
+        "domain": "",
+        "server": "dns-remote",
+        "rewrite_ttl": 3000
+      },
+      {
+        "rule_set": [
+          "geoip-",
+          "geosite-"
+        ],
+        "server": "dns-direct"
+      },
+      {
+        "domain_suffix": ".",
+        "server": "dns-direct"
+      }
+    ],
+    "final": "dns-remote",
+    "static_ips": {
+      "sky.rethinkdns.com": [
+        "104.17.148.22",
+        "104.17.147.22",
+        "188.114.97.3",
+        "188.114.96.3"
+      ]
+    }
+  },
+  "inbounds": [
+    {
+      "type": "mixed",
+      "tag": "mixed-in",
+      "listen": "127.0.0.1",
+      "sniff": true,
+      "sniff_override_destination": true
+    },
+    {
+      "type": "direct",
+      "tag": "dns-in",
+      "listen": "127.0.0.1"
+    }
+  ],
+  "outbounds": [
+    {
+      "type": "selector",
+      "tag": "select",
+      "outbounds": [
+        "auto",
+        "@Hiddify_Nexttt کانال§ 0",
+        "@Hiddify_Nexttt کانال§ 1",
+        "@Hiddify_Nexttt کانال§ 2",
+        "@Hiddify_Nexttt کانال§ 3",
+        "@Hiddify_Nexttt کانال§ 4",
+        "@Hiddify_Nexttt کانال§ 5",
+        "@Hiddify_Nexttt کانال§ 6",
+        "@Hiddify_Nexttt کانال § 7",
+        "@Hiddify_Nexttt کانال§ 8",
+        "@Hiddify_Nexttt کانال§ 9"
+      ],
+      "default": "auto"
+    },
+    {
+      "type": "urltest",
+      "tag": "auto",
+      "outbounds": [
+        "@Hiddify_Nexttt کانال§ 0",
+        "@Hiddify_Nexttt کانال§ 1",
+        "@Hiddify_Nexttt کانال§ 2",
+        "@Hiddify_Nexttt کانال§ 3",
+        "@Hiddify_Nexttt کانال§ 4",
+        "@Hiddify_Nexttt کانال§ 5",
+        "@Hiddify_Nexttt کانال§ 6",
+        "@Hiddify_Nexttt کانال § 7",
+        "@Hiddify_Nexttt کانال§ 8",
+        "@Hiddify_Nexttt کانال§ 9"
+      ],
+      "tolerance": 1
+    },
+    {
+      "type": "vless",
+      "tag": "@Hiddify_Nexttt کانال§ 0",
+      "server": "172.67.1.191",
+      "server_port": 2053,
+      "uuid": "ac51ad36-5052-460a-842a-e13455d30cb8",
+      "tls": {
+        "enabled": true,
+        "server_name": "emoemotional.pages.dev",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "randomized"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/Telegram@V2ray_Alpha/",
+        "headers": {
+          "Host": "emoemotional.pages.dev"
+        },
+        "max_early_data": 2560,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": "xudp"
+    },
+    {
+      "type": "vless",
+      "tag": "@Hiddify_Nexttt کانال§ 1",
+      "server": "151.101.2.219",
+      "server_port": 443,
+      "uuid": "12fff267-c609-453e-d377-e1c281ea05f7",
+      "tls": {
+        "enabled": true,
+        "server_name": "speedtest.net",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "firefox"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "Freedomweb.ir"
+        },
+        "max_early_data": 443,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": "xudp"
+    },
+    {
+      "type": "vless",
+      "tag": "@Hiddify_Nexttt کانال§ 2",
+      "server": "www.speedtest.net",
+      "server_port": 80,
+      "uuid": "85c8bd32-8f63-4e71-affd-078e678577c3",
+      "transport": {
+        "type": "ws",
+        "path": "/Telegram:@UnlimitedDev-Telegram:@UnlimitedDev-Telegram:@UnlimitedDev",
+        "headers": {
+          "Host": "unlimiteddev.xn--9iqr0tm1r4wg.co"
+        },
+        "max_early_data": 2048,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": "xudp"
+    },
+    {
+      "type": "vless",
+      "tag": "@Hiddify_Nexttt کانال§ 3",
+      "server": "185.146.173.58",
+      "server_port": 2082,
+      "uuid": "9fcb42fa-136e-4b62-bf56-92c687e689fa",
+      "transport": {
+        "type": "ws",
+        "path": "/telegram-@polproxy,telegram-@polproxy,telegram-@polproxy,telegram-@polproxy,telegram-@polproxy,telegram-@polproxy,telegram-@polproxy,telegram-@polproxy,telegram-@polproxy,telegram-@polproxy,telegram-@polproxy,telegram-@polproxy,telegram-@polproxy,telegram-@polproxy,telegram-@polproxy,telegram-@polproxy,telegram-@polproxy,telegram-@polproxy",
+        "headers": {
+          "Host": "Kanal-polproxy.Vipnufilter.Online."
+        },
+        "max_early_data": 2048,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": "xudp"
+    },
+    {
+      "type": "vless",
+      "tag": "@Hiddify_Nexttt کانال§ 4",
+      "server": "104.18.86.70",
+      "server_port": 80,
+      "uuid": "2344a14e-154c-44f4-9df5-6de9ab7ea346",
+      "transport": {
+        "type": "ws",
+        "path": "/telegram-@polproxy,telegram-@polproxy,telegram-@polproxy,telegram-@polproxy,telegram-@polproxy,telegram-@polproxy,telegram-@polproxy,telegram-@polproxy,telegram-@polproxy,telegram-@polproxy,telegram-@polproxy,telegram-@polproxy,telegram-@polproxy,telegram-@polproxy,telegram-@polproxy,telegram-@polproxy,telegram-@polproxy,telegram-@polproxy",
+        "headers": {
+          "Host": "Kanal-polproxy.Vipnufilter.Online."
+        },
+        "max_early_data": 2048,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": "xudp"
+    },
+    {
+      "type": "vless",
+      "tag": "@Hiddify_Nexttt کانال§ 5",
+      "server": "www.speedtest.net",
+      "server_port": 80,
+      "uuid": "b11d1631-b578-498d-ad2c-a0d71a2e130f",
+      "transport": {
+        "type": "ws",
+        "path": "/Daily_Configs-netmaster",
+        "headers": {
+          "Host": "www.speedtest.net.zula.ir.zara.com.nobitex.com.vigilantecollection.com."
+        },
+        "max_early_data": 2048,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": "xudp"
+    },
+    {
+      "type": "vless",
+      "tag": "@Hiddify_Nexttt کانال§ 6",
+      "server": "visa.com",
+      "server_port": 80,
+      "uuid": "b11d1631-b578-498d-ad2c-a0d71a2e130f",
+      "transport": {
+        "type": "ws",
+        "path": "/Daily_Configs-netmaster",
+        "headers": {
+          "Host": "www.speedtest.net.zula.ir.zara.com.nobitex.com.vigilantecollection.com."
+        },
+        "max_early_data": 2048,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": "xudp"
+    },
+    {
+      "type": "vless",
+      "tag": "@Hiddify_Nexttt کانال § 7",
+      "server": "104.16.232.2",
+      "server_port": 8080,
+      "uuid": "3dd72cdc-dc53-4a85-b513-6959e81f8a0b",
+      "transport": {
+        "type": "httpupgrade",
+        "path": "/Daily_Configs-netmaster?ed=2048",
+        "headers": {
+          "Host": "www.speedtest.net.zula.ir.zara.com.nobitex.com.vigilantecollection.com."
+        }
+      },
+      "packet_encoding": "xudp"
+    },
+    {
+      "type": "vless",
+      "tag": "@Hiddify_Nexttt کانال§ 8",
+      "server": "speedtest.net",
+      "server_port": 443,
+      "uuid": "9ec22287-e8f2-4135-a639-a5a29a37f9ba",
+      "tls": {
+        "enabled": true,
+        "server_name": "speedtest.net",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "firefox"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/@Daily_Configs,@Daily_Configs,@Daily_Configs",
+        "headers": {
+          "Host": "join-dailyconfigs.com"
+        },
+        "max_early_data": 1024,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": "xudp"
+    },
+    {
+      "type": "vless",
+      "tag": "@Hiddify_Nexttt کانال§ 9",
+      "server": "www.speedtest.net",
+      "server_port": 8880,
+      "uuid": "f22e3263-203a-4a23-9770-45773335917d",
+      "transport": {
+        "type": "ws",
+        "path": "/-LiV2ry@LIGHTNING6-TEL--@LIGHTNING6-TEL--@LIGHTNING6-TEL--@LIGHTNING6-JOIN-@LIGHTNING6-TEL--@LIGHTNING6-JOIN-@LIGHTNING6-TEL-@LIGHTNING6-TEL--@LIGHTNING6-JOIN-@LIGHTNING6-TEL--@LIGHTNING6",
+        "headers": {
+          "Host": "www.speedtest.net.B.lightning-6.LiVE."
+        },
+        "max_early_data": 8880,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": "xudp"
+    },
+    {
+      "type": "dns",
+      "tag": "dns-out"
+    },
+    {
+      "type": "direct",
+      "tag": "direct"
+    },
+    {
+      "type": "direct",
+      "tag": "direct-fragment",
+      "tls_fragment": {
+        "enabled": true
+      }
+    },
+    {
+      "type": "direct",
+      "tag": "bypass"
+    },
+    {
+      "type": "block",
+      "tag": "block"
+    }
+  ],
+  "route": {
+    "rules": [
+      {
+        "domain": ".",
+        "outbound": "direct"
+      },
+      {
+        "rule_set": [
+          "geoip-",
+          "geosite-"
+        ],
+        "outbound": "direct"
+      },
+      {
+        "inbound": "dns-in",
+        "outbound": "dns-out"
+      },
+      {
+        "port": 53,
+        "outbound": "dns-out"
+      },
+      {
+        "clash_mode": "Direct",
+        "outbound": "direct"
+      },
+      {
+        "clash_mode": "Global",
+        "outbound": "select"
+      }
+    ],
+    "rule_set": [
+      {
+        "type": "remote",
+        "tag": "geoip-",
+        "format": "binary",
+        "url": "https://raw.githubusercontent.com/hiddify/hiddify-geo/rule-set/country/geoip-.srs",
+        "update_interval": "120h0m0s"
+      },
+      {
+        "type": "remote",
+        "tag": "geosite-",
+        "format": "binary",
+        "url": "https://raw.githubusercontent.com/hiddify/hiddify-geo/rule-set/country/geosite-.srs",
+        "update_interval": "120h0m0s"
+      }
+    ],
+    "final": "select",
+    "auto_detect_interface": true,
+    "override_android_vpn": true
+  }
+}
